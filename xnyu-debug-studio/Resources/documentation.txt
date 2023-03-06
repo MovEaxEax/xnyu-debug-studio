@@ -1,0 +1,51 @@
+///////////////////
+// Documentation //
+///////////////////
+// 
+// Structure:
+// frame{ ´inputs´ } = define a frame with inputs inside
+// repeat(´n´){ ´frame´ # ´frame2´ # ´frame3´ ... } = repeat the following frames n-times (if you have more than 1 frame to loop, chain them with '#' characters)
+// 
+// 
+// 
+// Inputs:
+// Button(´n´); = emulate joystick button press with index n (n can be 0 - 77)
+// DPad(´direction´); = emulates press on the direction pad with specific direction (0, 4500, 9000, 13500, 18000, 22500, 27000, 31500)
+// Axis(´X-direction´, ´Y-direction´); = emulates analog stick rotation of X and Y axis (from -1000 to 1000)
+// 
+// 
+// 
+// Special Methods:
+// SetX(´float´); = sets the X-Coordination of the player to a specific value
+// SetY(´float´); = sets the Y-Coordination of the player to a specific value
+// SetZ(´float´); = sets the Z-Coordination of the player to a specific value
+// SetEnergy(´int´); = sets the players energy bubbles to a specific value (every energy is 1000, so to set 3 energy to max use 3000)
+// SetSpellcard(´int´); = sets the players spellcard bar to a specific value (full spellcard bar is 1000)
+// 
+// 
+// 
+// Variables:
+// FloatA, FloatB, FloatC = float variables that can be used (FloatA-1; -> decreases with 1 // FloatA+30; -> increases with 30 // FloatA=100 -> sets to 100)
+// IntA, IntA, IntA = integer variables that can be used
+// 
+// 
+// 
+// 
+// 
+// !!! NOTES !!!
+// - The language is not case sensitive, write as you want
+// - After every input/variable/method instruction has to follow a ;
+// - Use the Debug Window option when injecting to debug the scripts (at least, a bit :P )
+// - Scripts for different versions have different file extension (Kengeki v1.0 = .YUMU1, Kengeki v1.2 = .YUMU2)
+// 
+// 
+// 
+// 
+// 
+// Have fun TASing and glitch hunting :)
+// Greetings, xNyu
+// 
+// 
+//
+ 
+Version: 1.0

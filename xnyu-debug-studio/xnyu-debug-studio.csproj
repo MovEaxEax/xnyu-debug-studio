@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{604621EB-F017-4E42-A96D-2426BBBAF4A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>xnyu_debug_studio</RootNamespace>
+    <AssemblyName>xnyu-debug-studio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>xNyuLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SharedFunctions.cs" />
+    <Compile Include="SharpInjector\Assembler.cs" />
+    <Compile Include="SharpInjector\ExportedFunction.cs" />
+    <Compile Include="SharpInjector\Injector.cs" />
+    <Compile Include="SharpInjector\InjectorException.cs" />
+    <Compile Include="SharpInjector\Memory.cs" />
+    <Compile Include="SharpInjector\MonoImageOpenStatus.cs" />
+    <Compile Include="SharpInjector\Native.cs" />
+    <Compile Include="SharpInjector\ProcessUtils.cs" />
+    <Compile Include="PointerReader.cs" />
+    <Compile Include="Technical.cs" />
+    <Compile Include="gh.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="SigScan.cs" />
+    <Compile Include="TemplateParsing.cs" />
+    <Compile Include="InputButton.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Example.yumu1" />
+    <None Include="Resources\Example.yumu2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\eject_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\eject_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\inject_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\inject_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\pause_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\pause_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\play_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\play_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\pause_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\play_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\record_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\record_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\record_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowdown_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowdown_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowdown_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowup_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowup_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\arrowup_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentation.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\JoystickLayout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_axis_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_axis_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_axis_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_0_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_0_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_0_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_1_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_1_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_1_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_2_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_2_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_2_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_3_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_3_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_3_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_4_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_4_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_4_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_5_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_5_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_button_5_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_dpad_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_links_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_links_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_links_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_oben_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_oben_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_oben_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_rechts_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_rechts_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_rechts_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_unten_hovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_unten_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_unten_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_pad_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\keyboard_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mouse_Base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_0_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_1_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_2_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_3_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_4_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_5_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_6_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_7_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_8_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_9_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_A_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Alt_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowDown_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowLeft_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowRight_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_ArrowUp_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_B_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Backspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Backspace_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_C_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Ctrl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Ctrl_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_D_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_E_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Enter_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Esc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Esc_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_F_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_G_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_H_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_I.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_I_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_J_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_K_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_L_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_M_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_N_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_O_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_P_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Q_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_R_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_S_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Shift_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Space_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_T_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Tab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Tab_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_U_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_V.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_V_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_W_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_X_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Y_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keyboard_Z_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_LMB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_LMB_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_MMB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_MMB_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_RMB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mouse_RMB_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_axis_normal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\joystick_axis_selected1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\eject_gray.png" />
+    <Content Include="xNyuLogo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,11 @@
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\bin\x86\Debug\xnyu-debug-studio.exe.config
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\bin\x86\Debug\xnyu-debug-studio.exe
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\bin\x86\Debug\xnyu-debug-studio.pdb
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.csproj.AssemblyReference.cache
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.csproj.SuggestedBindingRedirects.cache
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu_debug_studio.Workspace.resources
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu_debug_studio.Properties.Resources.resources
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.csproj.GenerateResource.cache
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.csproj.CoreCompileInputs.cache
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.exe
+C:\Users\Groudon\source\repos\xNyu-TAS-Studio\AnkakeSpa-TAS-Studio\obj\x86\Debug\xnyu-debug-studio.pdb
