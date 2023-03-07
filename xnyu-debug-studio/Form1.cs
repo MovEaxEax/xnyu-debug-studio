@@ -37,8 +37,11 @@ namespace xnyu_debug_studio
         public static extern short GetAsyncKeyState(Keys ArrowKeys);
 
         // Window names
-        public static string xnyu_window_short_name = "NTS v1.2";
-        public static string xnyu_window_long_name = "xNyu TAS Studio v1.2";
+        public static string xnyu_window_short_name = "NTS v0.9";
+        public static string xnyu_window_long_name = "xNyu TAS Studio v0.9";
+
+        // Copies files etc, when opened in visual studio
+        public static bool visualStudioMode = true;
 
         // Template
         public static Template CurrentTemplate = null;
@@ -91,6 +94,67 @@ namespace xnyu_debug_studio
         public static int injectionAttemptMax = 3;
         public static int initAttemptMax = 10;
 
+        public struct StudioSettings
+        {
+            public int firstTime;
+        };
+
+        public static StudioSettings GlobalSettings = new StudioSettings();
+
+        public static void CreateSettings()
+        {
+            if (File.Exists(dir_config + @"\settings.cfg")) return;
+            string file = dir_config + @"\settings.cfg";
+            string[] settings = new string[1] {
+                "firstTime=1",
+            };
+            File.WriteAllLines(file, settings);
+        }
+
+        public static void UpdateSettings(string[] entry, string[] value)
+        {
+            if (entry.Length == 0) return;
+            string file = dir_config + @"\settings.cfg";
+            string[] settings = File.ReadAllLines(file);
+            for (int k = 0; k < entry.Length; k++)
+            {
+                for (int i = 0; i < settings.Length; i++)
+                {
+                    if (settings[i].Contains(entry[k]))
+                    {
+                        settings[i] = entry[k] + "=" + value[k];
+                        break;
+                    }
+                }
+            }
+            File.WriteAllLines(file, settings);
+            ReadSettings(entry, value);
+        }
+
+        public static void ReadSettings(string[] entries = null, string[] values = null)
+        {
+            string[] settings = null;
+            if (entries == null && values == null)
+            {
+                string file = dir_config + @"\settings.cfg";
+                settings = File.ReadAllLines(file);
+            }
+            else
+            {
+                settings = new string[entries.Length];
+                for (int i = 0; i < entries.Length; i++) settings[i] = entries[i] + "=" + values[i];
+            }
+            for (int k = 0; k < settings.Length; k++)
+            {
+                string parameter = settings[k].Split('=')[0];
+                string value = settings[k].Split('=')[1];
+
+                if (parameter == "firstTime")
+                {
+                    GlobalSettings.firstTime = int.Parse(value);
+                }
+            }
+        }
         public Workspace()
         {
             // Form init
@@ -103,10 +167,29 @@ namespace xnyu_debug_studio
             FolderStructure.Add(dir_mods);
             FolderStructure.Add(dir_templates);
             FolderStructure.Add(dir_bin);
+            FolderStructure.Add(dir_bin + @"\x64");
+            FolderStructure.Add(dir_bin + @"\x86");
             FolderStructure.Add(dir_config);
 
             // Create folder of TAS Studio structure
             CreateFolderStructure();
+
+            if (visualStudioMode)
+            {
+                string cD = Directory.GetCurrentDirectory();
+
+                string src64 = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug\x64\Debug\xnyu-debug.dll";
+                string dst64 = cD + @"\bin\x64\xnyu-debug-x64.dll";
+                if (File.Exists(src64)) File.Copy(src64, dst64, true);
+
+                string src86 = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug\Debug\xnyu-debug.dll";
+                string dst86 = cD + @"\bin\x86\xnyu-debug-x86.dll";
+                if (File.Exists(src64)) File.Copy(src86, dst86, true);
+            }
+
+            // Create and read settings
+            CreateSettings();
+            ReadSettings();
 
             //Picture Box Transparent
             Play_Button.BackColor = Color.Transparent;
@@ -152,8 +235,7 @@ namespace xnyu_debug_studio
                 int ExpandXDistanceTitle = 0;
                 int ExpandYDistanceTitle = 0;
 
-
-                while (true)
+            while (true)
                 {
                     if (FormShrinkTrigger)
                     {
@@ -169,7 +251,7 @@ namespace xnyu_debug_studio
                             ShrinkXDistanceTitle = Math.Abs(Title_Picture.Location.X - TitlePositionShrink[0]);
                             ShrinkYDistanceTitle = Math.Abs(Title_Picture.Location.Y - TitlePositionShrink[1]);
                             ShrinkXFactorTitle = (int)Math.Floor((decimal)ShrinkXDistanceTitle / 100);
-                            ShrinkYFactorTitle = (int)Math.Floor((decimal)ShrinkYFactorTitle / 100);
+                            ShrinkYFactorTitle = (int)Math.Floor((decimal)ShrinkYDistanceTitle / 100);
 
                             FormShrinkTriggerInit = false;
                             FormExpantionRunning = true;
@@ -275,8 +357,22 @@ namespace xnyu_debug_studio
             });
 
             FormResizer.Start();
+
+            if (GlobalSettings.firstTime == 1)
+            {
+                UpdateSettings(new string[] { "firstTime" }, new string[] { "0" });
+                MessageBox.Show("Welcome to the xNyu Debug Studio! To get started you need a template of the game you want to debug.\n" +
+                                "Go on the github repository to gain additional information how to do.\n" +
+                                "If you want to search for an available mod online, you can use the textfield and the \"Download Mod\" button");
+            }
         }
 
+        public static void UpdateSettings()
+        {
+            string file = Directory.GetCurrentDirectory() + @"\settings.cfg";
+            string[] settings = new string[2] { "", "" };
+            File.WriteAllLines(file, settings);
+        }
 
 
         private void Play_Button_Hover(object sender, System.EventArgs e)

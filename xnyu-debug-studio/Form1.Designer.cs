@@ -32,7 +32,6 @@ namespace xnyu_debug_studio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Workspace));
             this.Box_Templates = new System.Windows.Forms.ComboBox();
             this.Box_Script = new System.Windows.Forms.ComboBox();
-            this.Inject_Button = new System.Windows.Forms.PictureBox();
             this.Play_Button = new System.Windows.Forms.PictureBox();
             this.Record_Button = new System.Windows.Forms.PictureBox();
             this.Textbox_Record_Name = new System.Windows.Forms.TextBox();
@@ -113,7 +112,7 @@ namespace xnyu_debug_studio
             this.Progressbar_Inject = new System.Windows.Forms.ProgressBar();
             this.checkbox_devmode = new System.Windows.Forms.CheckBox();
             this.checkbox_active = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).BeginInit();
+            this.Inject_Button = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Play_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Title_Picture)).BeginInit();
@@ -184,6 +183,7 @@ namespace xnyu_debug_studio
             ((System.ComponentModel.ISupportInitialize)(this.MB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPACE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Joystick_RAxis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).BeginInit();
             this.SuspendLayout();
             // 
             // Box_Templates
@@ -203,21 +203,6 @@ namespace xnyu_debug_studio
             this.Box_Script.Size = new System.Drawing.Size(168, 21);
             this.Box_Script.TabIndex = 3;
             this.Box_Script.DropDown += new System.EventHandler(this.Box_Script_Focus);
-            // 
-            // Inject_Button
-            // 
-            this.Inject_Button.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.inject_normal;
-            this.Inject_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Inject_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Inject_Button.Location = new System.Drawing.Point(12, 76);
-            this.Inject_Button.Name = "Inject_Button";
-            this.Inject_Button.Size = new System.Drawing.Size(36, 36);
-            this.Inject_Button.TabIndex = 1;
-            this.Inject_Button.TabStop = false;
-            this.Inject_Button.Tag = "Inject";
-            this.Inject_Button.Click += new System.EventHandler(this.Inject_Button_Click);
-            this.Inject_Button.MouseEnter += new System.EventHandler(this.Inject_Button_Hover);
-            this.Inject_Button.MouseLeave += new System.EventHandler(this.Inject_Button_UnHover);
             // 
             // Play_Button
             // 
@@ -1226,6 +1211,18 @@ namespace xnyu_debug_studio
             this.checkbox_active.UseVisualStyleBackColor = true;
             this.checkbox_active.Click += new System.EventHandler(this.Active_Checkbox_Checked);
             // 
+            // Inject_Button
+            // 
+            this.Inject_Button.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.inject_normal;
+            this.Inject_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Inject_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Inject_Button.Location = new System.Drawing.Point(12, 76);
+            this.Inject_Button.Name = "Inject_Button";
+            this.Inject_Button.Size = new System.Drawing.Size(36, 36);
+            this.Inject_Button.TabIndex = 105;
+            this.Inject_Button.TabStop = false;
+            this.Inject_Button.Tag = "Inject";
+            // 
             // Workspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,6 +1230,7 @@ namespace xnyu_debug_studio
             this.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(480, 557);
+            this.Controls.Add(this.Inject_Button);
             this.Controls.Add(this.checkbox_active);
             this.Controls.Add(this.checkbox_devmode);
             this.Controls.Add(this.Progressbar_Inject);
@@ -1314,7 +1312,6 @@ namespace xnyu_debug_studio
             this.Controls.Add(this.Record_Button);
             this.Controls.Add(this.Box_Script);
             this.Controls.Add(this.Box_Templates);
-            this.Controls.Add(this.Inject_Button);
             this.Controls.Add(this.Play_Button);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -1324,7 +1321,6 @@ namespace xnyu_debug_studio
             this.Text = "NTS v1.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FormClosing);
             this.Load += new System.EventHandler(this.Workspace_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Play_Button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_Button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Title_Picture)).EndInit();
@@ -1395,6 +1391,7 @@ namespace xnyu_debug_studio
             ((System.ComponentModel.ISupportInitialize)(this.MB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPACE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Joystick_RAxis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1403,7 +1400,6 @@ namespace xnyu_debug_studio
         #endregion
 
         private System.Windows.Forms.PictureBox Play_Button;
-        private System.Windows.Forms.PictureBox Inject_Button;
         private System.Windows.Forms.ComboBox Box_Templates;
         private System.Windows.Forms.ComboBox Box_Script;
         private System.Windows.Forms.PictureBox Record_Button;
@@ -1485,6 +1481,7 @@ namespace xnyu_debug_studio
         private System.Windows.Forms.ProgressBar Progressbar_Inject;
         private System.Windows.Forms.CheckBox checkbox_devmode;
         private System.Windows.Forms.CheckBox checkbox_active;
+        private System.Windows.Forms.PictureBox Inject_Button;
     }
 }
 
