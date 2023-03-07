@@ -126,6 +126,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="config\imgs\CustomCursor.xcf" />
+    <None Include="config\imgs\DebugFunctions.xcf" />
+    <None Include="config\imgs\DebugValues.xcf" />
+    <None Include="config\imgs\Overview.xcf" />
+    <None Include="config\imgs\SavefileEditor.xcf" />
+    <None Include="config\imgs\SavefileEditorSelect.xcf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -638,6 +644,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\eject_gray.png" />
+    <None Include="config\imgs\CustomCursor.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\imgs\DebugFunctions.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\imgs\DebugValues.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\imgs\Overview.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\imgs\SavefileEditor.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\imgs\SavefileEditorSelect.raw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="xNyuLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
