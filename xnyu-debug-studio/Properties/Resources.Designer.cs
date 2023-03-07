@@ -163,66 +163,6 @@ namespace xnyu_debug_studio.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrowdown_gray {
-            get {
-                object obj = ResourceManager.GetObject("arrowdown_gray", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrowdown_hover {
-            get {
-                object obj = ResourceManager.GetObject("arrowdown_hover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrowdown_normal {
-            get {
-                object obj = ResourceManager.GetObject("arrowdown_normal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrowup_gray {
-            get {
-                object obj = ResourceManager.GetObject("arrowup_gray", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrowup_hover {
-            get {
-                object obj = ResourceManager.GetObject("arrowup_hover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrowup_normal {
-            get {
-                object obj = ResourceManager.GetObject("arrowup_normal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap AUP {
             get {
                 object obj = ResourceManager.GetObject("AUP", resourceCulture);
@@ -596,6 +536,26 @@ namespace xnyu_debug_studio.Properties {
         internal static System.Drawing.Bitmap eject_normal {
             get {
                 object obj = ResourceManager.GetObject("eject_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ENTER {
+            get {
+                object obj = ResourceManager.GetObject("ENTER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ENTER_Selected {
+            get {
+                object obj = ResourceManager.GetObject("ENTER_Selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1336,26 +1296,6 @@ namespace xnyu_debug_studio.Properties {
         internal static System.Drawing.Bitmap record_normal {
             get {
                 object obj = ResourceManager.GetObject("record_normal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RETURN {
-            get {
-                object obj = ResourceManager.GetObject("RETURN", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RETURN_Selected {
-            get {
-                object obj = ResourceManager.GetObject("RETURN_Selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

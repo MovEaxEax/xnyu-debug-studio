@@ -1092,7 +1092,7 @@ namespace xnyu_debug_studio
             // 
             // RETURN
             // 
-            this.RETURN.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.RETURN;
+            this.RETURN.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.ENTER;
             this.RETURN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RETURN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RETURN.Location = new System.Drawing.Point(419, 468);

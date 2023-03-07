@@ -170,6 +170,7 @@ namespace xnyu_debug_studio
             FolderStructure.Add(dir_bin + @"\x64");
             FolderStructure.Add(dir_bin + @"\x86");
             FolderStructure.Add(dir_config);
+            FolderStructure.Add(dir_config + @"\history");
 
             // Create folder of TAS Studio structure
             CreateFolderStructure();
@@ -185,6 +186,10 @@ namespace xnyu_debug_studio
                 string src86 = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug\Debug\xnyu-debug.dll";
                 string dst86 = cD + @"\bin\x86\xnyu-debug-x86.dll";
                 if (File.Exists(src64)) File.Copy(src86, dst86, true);
+
+                string srcMM = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug-studio-mod-manager\xnyu-debug-studio-mod-manager\bin\Debug\xnyu-mod-manager.exe";
+                string dstMM = cD + @"\xnyu-mod-manager.exe";
+                if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
             }
 
             // Create and read settings
