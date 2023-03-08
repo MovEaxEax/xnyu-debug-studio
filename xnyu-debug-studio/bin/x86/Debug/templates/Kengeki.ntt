@@ -1,0 +1,30 @@
+module32
+{
+	target_module_name=kengeki.exe;
+	target_module_size=4521984;
+	
+	config_modname=Kengeki;
+	config_processname=kengeki;
+	config_version=v1.0;
+	
+	config_mousedriver_set=sendinput;
+	config_mousedriver_get=rawinput;
+	config_keyboarddriver_set=sendinput;
+	config_keyboarddriver_get=rawinput;
+	config_joystickdriver_set=directinput8;
+	config_joystickdriver_get=directinput8;
+	config_graphicdriver=directx9;
+	
+	config_script_directory=%root%/mods/%modname%/data/scripts;
+	config_working_directory=%root%/mods/%modname%/data/workspace;
+	config_log_directory=%root%/mods/%modname%/data/logs;
+	config_debugmod_directory=%root%/mods/%modname%/mod;
+	config_debugfunction_directory=%root%/mods/%modname%/v1/functions;
+	config_debugaddress_directory=%root%/mods/%modname%/v1/addresses;
+	config_inputmapping_directory=%root%/mods/%modname%/inputmapping;
+	config_savefile_directory=%root%/mods/%modname%/v1/savefile;
+	config_debugconfig_directory==%root%/mods/%modname%/config;
+	
+	config_frame_skip=0;
+	config_tas_delay=100;
+}

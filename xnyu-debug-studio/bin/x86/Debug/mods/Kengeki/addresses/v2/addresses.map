@@ -1,0 +1,13 @@
+Player
+{
+	Position-X(float);
+	Position-Y(float);
+	Position-Z(float);
+	Mana(int);
+	HP(int);
+}
+
+Boss
+{
+	HP(int);
+}
