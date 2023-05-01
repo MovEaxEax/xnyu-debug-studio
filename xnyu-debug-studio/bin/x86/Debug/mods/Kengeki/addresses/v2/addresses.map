@@ -3,11 +3,16 @@ Player
 	Position-X(float);
 	Position-Y(float);
 	Position-Z(float);
-	Mana(int);
-	HP(int);
+	SpeedFactor-X(float);
+	SpeedFactor-Y(float);
+	SpeedFactor-Z(float);
+	Energy(int32);
+	HP(int32);
+	SpellcardBar(int32);
+	AnimationIndex(int32);
 }
 
 Boss
 {
-	HP(int);
+	HP(int32);
 }

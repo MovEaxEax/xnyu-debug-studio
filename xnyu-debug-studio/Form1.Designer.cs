@@ -1222,6 +1222,9 @@ namespace xnyu_debug_studio
             this.Inject_Button.TabIndex = 105;
             this.Inject_Button.TabStop = false;
             this.Inject_Button.Tag = "Inject";
+            this.Inject_Button.Click += new System.EventHandler(this.Inject_Button_Click);
+            this.Inject_Button.MouseEnter += new System.EventHandler(this.Inject_Button_Hover);
+            this.Inject_Button.MouseLeave += new System.EventHandler(this.Inject_Button_UnHover);
             // 
             // Workspace
             // 

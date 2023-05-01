@@ -180,16 +180,20 @@ namespace xnyu_debug_studio
                 string cD = Directory.GetCurrentDirectory();
 
                 string src64 = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug\x64\Debug\xnyu-debug.dll";
-                string dst64 = cD + @"\bin\x64\xnyu-debug-x64.dll";
+                string dst64 = cD + @"\bin\x64\xnyu-debug.dll";
                 if (File.Exists(src64)) File.Copy(src64, dst64, true);
 
                 string src86 = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug\Debug\xnyu-debug.dll";
-                string dst86 = cD + @"\bin\x86\xnyu-debug-x86.dll";
+                string dst86 = cD + @"\bin\x86\xnyu-debug.dll";
                 if (File.Exists(src64)) File.Copy(src86, dst86, true);
 
                 string srcMM = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-debug-studio-mod-manager\xnyu-debug-studio-mod-manager\bin\Debug\xnyu-mod-manager.exe";
                 string dstMM = cD + @"\xnyu-mod-manager.exe";
                 if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
+
+                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Kengeki\Debug\kengeki-mod.dll";
+                string dstMod = cD + @"\mods\Kengeki\mod\kengeki-mod.dll";
+                if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
             }
 
             // Create and read settings
@@ -418,13 +422,13 @@ namespace xnyu_debug_studio
                 sharedFunctions.playScriptTAS("");
 
                 // Enable record button
-                EnableRecordButton();
+                //EnableRecordButton();
 
                 // Change Play button icon to play symbol
-                EnablePlayButton();
+                //EnablePlayButton();
 
                 // Enable Eject Button
-                EnableInjectButton();
+                //EnableInjectButton();
 
                 // Set target window to foreground
                 SetForegroundWindow(CurrentTemplate.window);
@@ -449,14 +453,14 @@ namespace xnyu_debug_studio
                         sharedFunctions.playScriptTAS(playScriptTASParams);
 
                         // Disable record button
-                        DisableRecordButton();
+                        //DisableRecordButton();
 
                         // Disable Eject Button
-                        DisableInjectButton();
+                        //DisableInjectButton();
 
                         //Change Me
-                        me.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_hover;
-                        me.Tag = "Pause";
+                        //me.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_hover;
+                        //me.Tag = "Pause";
                     }
                 }
 
@@ -501,13 +505,13 @@ namespace xnyu_debug_studio
                 sharedFunctions.recordScriptTAS("");
 
                 // Enabled play button
-                EnablePlayButton();
+                //EnablePlayButton();
 
                 // Reset record button
-                EnableRecordButton();
+                //EnableRecordButton();
 
                 // Enable Eject Button
-                EnableInjectButton();
+                //EnableInjectButton();
 
                 // Set target window to foreground
                 SetForegroundWindow(CurrentTemplate.window);
@@ -544,14 +548,14 @@ namespace xnyu_debug_studio
                 sharedFunctions.recordScriptTAS(recordScriptTASParams);
 
                 // Disable play button
-                DisablePlayButton();
+                //DisablePlayButton();
 
                 // Disable Eject Button
-                DisableInjectButton();
+                //DisableInjectButton();
 
                 // Change to pause icon
-                me.Tag = "Stop";
-                me.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_hover;
+                //me.Tag = "Stop";
+                //me.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_hover;
             }
         }
 
@@ -678,7 +682,7 @@ namespace xnyu_debug_studio
                             }
                             Progressbar_Inject.PerformStep();
 
-                            if(CurrentTemplate.target_module.config_anticheat_file != "" && CurrentTemplate.target_module.config_anticheat_file != null)
+                            if (CurrentTemplate.target_module.config_anticheat_file != "" && CurrentTemplate.target_module.config_anticheat_file != null)
                             {
                                 string file = CurrentTemplate.target_module.config_anticheat_file;
                                 if (file.Substring(file.Length - 4, 4).ToLower() == ".exe")
@@ -718,8 +722,7 @@ namespace xnyu_debug_studio
 
                             // Check if TAS is injected
                             bool tas_injected = false;
-                            //string xnyu_tas_dll_path = dir_root + @"\bin\" + (CurrentTemplate.is64bit ? @"x64\" : @"x86\") + xnyu_tas_dll;
-                            string xnyu_tas_dll_path = @"C:\Users\Groudon\source\repos\xnyu-debug\" + (CurrentTemplate.is64bit ? @"x64\" : @"") + @"Debug\xnyu-debug.dll";
+                            string xnyu_tas_dll_path = dir_root + @"\bin\" + (CurrentTemplate.is64bit ? @"x64\" : @"x86\") + "xnyu-debug.dll";
 
                             for (int initAttempt = 0; initAttempt < initAttemptMax; initAttempt++)
                             {
@@ -732,7 +735,7 @@ namespace xnyu_debug_studio
                                     {
                                         // Inject
                                         tas_injected = ghapi.InjectDLL(xnyu_tas_dll_path, CurrentTemplate.process.ProcessName);
-                                        Thread.Sleep(250 + (i_try * 100));
+                                        Thread.Sleep(350 + (i_try * 100));
 
                                         if (tas_injected)
                                         {
@@ -775,19 +778,24 @@ namespace xnyu_debug_studio
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_joystickdriver_set + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_joystickdriver_get + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_graphicdriver + ";";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_d3d9_hook + ";";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_rawinput_demand + ";";
 
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_modname + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_processname + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_version + ";";
+
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_tashook + ";";
 
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_frame_skip + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_tas_delay + ";";
 
                                         // Call init in debugger
                                         SetForegroundWindow(CurrentTemplate.window);
-                                        Thread.Sleep(250 + (100 * (initAttempt + 1)));
+                                        Thread.Sleep(450 + (100 * (initAttempt + 1)));
                                         int initResult = initResult = sharedFunctions.initDebugger(initDebuggerParameter);
-                                        Thread.Sleep(500);
+                                        Thread.Sleep(600);
+
                                         if (initResult == 0)
                                         {
                                             Progressbar_Inject.PerformStep();
@@ -1386,6 +1394,23 @@ namespace xnyu_debug_studio
                                 }));
                                 checkMore = false;
                             }
+                            else if (playChecker == 13)
+                            {
+                                // Recording script is done
+                                this.BeginInvoke(new MethodInvoker(delegate ()
+                                {
+                                    // Disable play button
+                                    DisableRecordButton();
+
+                                    // Disable Eject Button
+                                    DisableInjectButton();
+
+                                    // Change to pause icon
+                                    Play_Button.Tag = "Pause";
+                                    Play_Button.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_normal;
+                                }));
+                                checkMore = false;
+                            }
                         }
 
                         if (checkMore)
@@ -1414,7 +1439,7 @@ namespace xnyu_debug_studio
 
                                     // Change to pause icon
                                     Record_Button.Tag = "Stop";
-                                    Record_Button.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_hover;
+                                    Record_Button.BackgroundImage = xnyu_debug_studio.Properties.Resources.pause_normal;
                                 }));
                                 checkMore = false;
                             }

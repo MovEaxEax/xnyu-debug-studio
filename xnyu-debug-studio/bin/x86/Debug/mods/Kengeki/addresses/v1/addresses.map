@@ -3,11 +3,34 @@ Player
 	Position-X(float);
 	Position-Y(float);
 	Position-Z(float);
-	Mana(int);
-	HP(int);
+	Direction(float);
+	SpeedFactor-X(float);
+	SpeedFactor-Y(float);
+	SpeedFactor-Z(float);
+	Energy(int32);
+	HP(int32);
+	SpellcardBar(int32);
+	AnimationIndex(int32);
+}
+
+Camera
+{
+	Position-X(float);
+	Position-Y(float);
+	Position-Z(float);
+	Angle-X(float);
+	Angle-Y(float);
+	Angle-Z(float);
+	Zoom(float);
+}
+
+Objects
+{
+	ObjectsCounter(int32);
+	EnemiesCounter(int32);
 }
 
 Boss
 {
-	HP(int);
+	HP(int32);
 }

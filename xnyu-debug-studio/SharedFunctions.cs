@@ -94,6 +94,7 @@ namespace xnyu_debug_studio
             }
 
             UIntPtr shadowDLL = LoadLibraryA(debugDLL);
+            Thread.Sleep(100);
 
             initDebuggerPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "initDebugger").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             playScriptTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "playScriptTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
@@ -107,8 +108,9 @@ namespace xnyu_debug_studio
             ejectDebuggerPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "ejectDebugger").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfRecordScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfRecordScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfPlayScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfPlayScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
-            
+
             FreeLibrary(shadowDLL);
+            Thread.Sleep(100);
         }
 
         public int initDebugger(string parameter)

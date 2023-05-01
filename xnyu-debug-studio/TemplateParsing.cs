@@ -24,6 +24,7 @@ namespace xnyu_debug_studio
             public string config_modname;
             public string config_processname;
             public string config_version;
+            public string config_tashook;
             public string config_mousedriver_set;
             public string config_mousedriver_get;
             public string config_keyboarddriver_set;
@@ -31,6 +32,8 @@ namespace xnyu_debug_studio
             public string config_joystickdriver_set;
             public string config_joystickdriver_get;
             public string config_graphicdriver;
+            public string config_d3d9_hook;
+            public string config_rawinput_demand;
             public string config_script_directory;
             public string config_working_directory;
             public string config_log_directory;
@@ -88,11 +91,11 @@ namespace xnyu_debug_studio
                             {
                                 bool moduleFound = true;
                                 if (pm.ModuleName != module.target_module_name) moduleFound = false;
-                                if (module.target_module_size != "") if (pm.ModuleMemorySize != int.Parse(module.target_module_size)) moduleFound = false;
-                                if (module.target_module_productname != "") if (pm.FileVersionInfo.ProductName != module.target_module_productname) moduleFound = false;
-                                if (module.target_module_internalname != "") if (pm.FileVersionInfo.InternalName != module.target_module_internalname) moduleFound = false;
-                                if (module.target_module_companyname != "") if (pm.FileVersionInfo.CompanyName != module.target_module_companyname) moduleFound = false;
-                                if (module.target_module_version != "") if (pm.FileVersionInfo.FileVersion != module.target_module_version) moduleFound = false;
+                                if (module.target_module_size != "" && module.target_module_size != null) if (pm.ModuleMemorySize != int.Parse(module.target_module_size)) moduleFound = false;
+                                if (module.target_module_productname != "" && module.target_module_productname != null) if (pm.FileVersionInfo.ProductName != module.target_module_productname) moduleFound = false;
+                                if (module.target_module_internalname != "" && module.target_module_internalname != null) if (pm.FileVersionInfo.InternalName != module.target_module_internalname) moduleFound = false;
+                                if (module.target_module_companyname != "" && module.target_module_companyname != null) if (pm.FileVersionInfo.CompanyName != module.target_module_companyname) moduleFound = false;
+                                if (module.target_module_version != "" && module.target_module_version != null) if (pm.FileVersionInfo.FileVersion != module.target_module_version) moduleFound = false;
                                 if (moduleFound)
                                 {
                                     target_module = module;
@@ -237,7 +240,10 @@ namespace xnyu_debug_studio
                 target_module.config_graphicdriver != "directx11" && target_module.config_graphicdriver != "directx12" &&
                 target_module.config_graphicdriver != "opengl" && target_module.config_graphicdriver != "vulcan" &&
                 target_module.config_graphicdriver != "") return "Wrong paramter for config_graphicdriver.";
+            if (target_module.config_rawinput_demand != "true" && target_module.config_rawinput_demand != "false") return "Wrong paramter for config_rawinput_demand.";
+            if (target_module.config_d3d9_hook != "present" && target_module.config_d3d9_hook != "endscene") return "Wrong paramter for config_d3d9_hook.";
 
+            
             target_module.config_script_directory = ParseRelativePaths(target_module.config_script_directory);
             if (target_module.config_script_directory == "") return "No config_script_directory was set.";
             if (!target_module.config_script_directory.Contains(root_dir)) return "config_script_directory doesn't act inside the root directory.";
@@ -337,6 +343,7 @@ namespace xnyu_debug_studio
                 module.target_module_internalname = "";
                 module.target_module_companyname = "";
                 module.target_module_version = "";
+                module.config_tashook = "graphics";
                 module.config_modname = "";
                 module.config_processname = "";
                 module.config_version = "";
@@ -347,6 +354,8 @@ namespace xnyu_debug_studio
                 module.config_joystickdriver_set = "";
                 module.config_joystickdriver_get = "";
                 module.config_graphicdriver = "";
+                module.config_d3d9_hook = "present";
+                module.config_rawinput_demand = "true";
                 module.config_script_directory = "";
                 module.config_working_directory = "";
                 module.config_log_directory = "";
@@ -593,6 +602,36 @@ namespace xnyu_debug_studio
                                         equalIndex++;
                                     }
                                     module.target_module_version = parameter;
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_tashook
+                            if (template_text.Length > "config_tashook".Length)
+                            {
+                                if (template_text.Substring(0, "config_tashook".Length) == "config_tashook")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_tashook = parameter;
                                     template_text = template_text.Remove(0, equalIndex + 1);
                                     foundConfig = true;
                                 }
@@ -893,6 +932,66 @@ namespace xnyu_debug_studio
                                         equalIndex++;
                                     }
                                     module.config_graphicdriver = parameter.ToLower();
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_d3d9_hook
+                            if (template_text.Length > "config_d3d9_hook".Length)
+                            {
+                                if (template_text.Substring(0, "config_d3d9_hook".Length) == "config_d3d9_hook")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_d3d9_hook = parameter.ToLower();
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_rawinput_demand
+                            if (template_text.Length > "config_rawinput_demand".Length)
+                            {
+                                if (template_text.Substring(0, "config_rawinput_demand".Length) == "config_rawinput_demand")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_rawinput_demand = parameter.ToLower();
                                     template_text = template_text.Remove(0, equalIndex + 1);
                                     foundConfig = true;
                                 }
