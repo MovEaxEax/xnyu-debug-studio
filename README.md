@@ -194,6 +194,22 @@ log("Some text here!");
 Exit();
 ```
 
+Arithmetic operations allow just one parameter and need an =-character to calculate
+```
+main
+{
+	float distance = 0;
+	float original = Player.Position-Y;
+	repeat(25)
+	{
+		frame{JOYDOWN();}
+	}
+	distance = Player.Position-Y;
+	distance -= original;
+	log("Tracked distance walked: ", distance);
+}
+```
+
 If errors occure with your script, you will find errors and information about what went wrong in the console, if you enabled it.
 
 ### Disclaimer
