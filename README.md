@@ -162,7 +162,7 @@ baseObject += "_123";
 Game.DestroyObject(baseObject);
 ```
 
-There are few loop instructions and conditions you can use with logical operations, but for example, there is no else-statement:
+There are few loop instructions and conditions you can use with logical operations, but for example, there is no else-statement. The repeat-statemtn only integer as parameter and no variables:
 ```
 while(Player.Position-Y < 1000.0)
 {
