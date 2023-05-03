@@ -1,8 +1,9 @@
 ### Description
 
 This software is for debugging games, with heavy focus on speedrunning and glitchhunting. Futhermore, it can be used for speedrun practice, game analysis or simple cheating.
+This is the main repository includes the full build in the release section, however it needs the xnyu-debug.dll from the [xnyu-debug repository](https://github.com/MovEaxEax/xnyu-debug)
 
-### Feature overview
+### Core features
 
 - Input simulation (TAS) with scripting language
 - Automation
