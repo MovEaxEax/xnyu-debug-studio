@@ -113,11 +113,89 @@ main
 }
 ```
 
-The main section is the main execution of the script, but init is called before that. Here you can import functions from other scripts aswell.
+The main section is the main execution of the script, but init is called before that.
+You can import funcitons from other scripts with the import statement outside of a function:
+```
+import{"myScriptA.nts";}
+import{
+  "myScriptB.nts";
+  "myScriptC.nts";
+}
 ```
 
+There are a few datatypes that a variable can have:
 ```
+int32 varA = 12345;
+int64 varB = 3000000000;
+float varC = 30.0;
+double varD = 1.2;
+byte varE = 0x10;
+bool varF = true;
+string varG = "text";
+```
+
+The moment a variable is declared, she is static and can be used everywhere in the script. There are no privates.
+Main feature of the scripting language is the frame{}, which determines the inputs which are pressed at a frame. The name of the keys varies from mod to mod, since they have custom input mapping, but the standard input mapping looks like this:
+```
+// Keyboard A, Space and 1 key are pressed
+frame{ A(); SPACE(); 1();}
+// Nothing is pressed
+frame{ }
+// Joystick DPAD up and Left stick are pressed
+frame{ JOYUP(); LAXIS(-60); }
+// Mouse moved X position and scrollwheel scrolled upside
+frame{ MOUSEX(100); WHEEL(10); }
+```
+
+Everything you write in the scripts is not case sentitive. If you declare a variable called "MyVariable" you can access her with "myvariable" aswell.
+You can call DebugFunctions that the specific mod implements in your script like this:
+```
+Player.SetPosition(100.0, 100.0, 30.0);
+Game.DestroyObject("ObjectID");
+```
+
+The full path with .-character has to be typed. DebugValues can be used like variables, but you have to write the full name aswell:
+```
+Player.SetPosition(Player.Position-X, 100.0, 30.0);
+string baseObject = Objects.BaseObjectIdentifier;
+baseObject += "_123";
+Game.DestroyObject(baseObject);
+```
+
+There are few loop instructions and conditions you can use with logical operations, but for example, there is no else-statement:
+```
+while(Player.Position-Y < 1000.0)
+{
+  frame{ JOYUP(); }
+}
+
+repeat(100)
+{
+  frame{ JOYLEFT(); }
+}
+
+if (Player.Position-X >= 300.0)
+{
+  repeat(100)
+  {
+    frame{ JOYRIGHT(); }
+  }
+}
+
+if (Globals.IsGamePaused)
+{
+  frame{ JOYSTART();}
+}
+```
+
+For feedback you can use the log() and Exit() function, to log some text in the console or stop the script
+```
+log("Some text here!");
+Exit();
+```
+
+If errors occure with your script, you will find errors and information about what went wrong in the console, if you enabled it.
+
 ### Disclaimer
 This is an early version of the tool, crashes of the game are very likely. If you don't encounter crashes, you are either blessed by the gods or deal with a game that is as complex as pong.
-
-
+The scripting language is kind of fragile at the moment.
