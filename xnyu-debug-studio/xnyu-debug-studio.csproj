@@ -327,6 +327,10 @@
     <None Include="Resources\Z.png" />
     <None Include="Resources\Z_Selected.png" />
     <Content Include="icon.ico" />
+    <None Include="Resources\JOYSELECT.png" />
+    <None Include="Resources\JOYSELECT_Selected.png" />
+    <None Include="Resources\JOYSTART.png" />
+    <None Include="Resources\JOYSTART_Selected.png" />
     <Content Include="xNyuLogo.ico" />
   </ItemGroup>
   <ItemGroup>

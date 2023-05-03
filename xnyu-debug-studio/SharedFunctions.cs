@@ -165,7 +165,7 @@ namespace xnyu_debug_studio
 
         public int toggleDevMode(string parameter)
         {
-            return InvokeFunction(toggleDevConsolePointer, parameter, proc.ProcessName);
+            return InvokeFunction(toggleDevModePointer, parameter, proc.ProcessName);
         }
 
         public int ejectDebugger(string parameter)

@@ -332,7 +332,7 @@
     <value>..\Resources\JOYLAXIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JOYLAXIS_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JOYLAXIS_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\JOYRAXIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JOYLB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JOYLB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -347,7 +347,7 @@
     <value>..\Resources\JOYLEFT_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JOYRAXIS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JOYRAXIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\JOYLAXIS_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JOYRAXIS_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JOYRAXIS_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -363,6 +363,18 @@
   </data>
   <data name="JOYRIGHT_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JOYRIGHT_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JOYSELECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JOYSELECT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JOYSELECT_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JOYSELECT_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JOYSTART" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JOYSTART.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JOYSTART_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JOYSTART_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JoystickLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JoystickLayout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

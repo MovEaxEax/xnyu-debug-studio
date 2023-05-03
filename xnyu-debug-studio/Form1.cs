@@ -982,13 +982,13 @@ namespace xnyu_debug_studio
                 InputButton button = InputButtons.ElementAt(i).Value;
 
                 // Add button command to the current frame
-                if (button.selected) frame = frame + button.command + "(); ";
+                if (button.selected && (button.id < 84 || button.id > 87)) frame = frame + button.command + "(); ";
             }
 
             // LAxis special case
             if (InputButtons["JOYLAXISX"].selected) {
                 int L_axis_x = (Joystick_LAxis.Left - int.Parse(Joystick_LAxis.Tag.ToString().Split(';')[0])) * 100;
-                int L_axis_y = (Joystick_LAxis.Top - int.Parse(Joystick_LAxis.Tag.ToString().Split(';')[0])) * 100;
+                int L_axis_y = (Joystick_LAxis.Top - int.Parse(Joystick_LAxis.Tag.ToString().Split(';')[1])) * 100;
                 frame = frame + InputButtons["JOYLAXISX"].command + "(" + L_axis_x.ToString() + "); ";
                 frame = frame + InputButtons["JOYLAXISY"].command + "(" + L_axis_y.ToString() + "); ";
             }
@@ -997,7 +997,7 @@ namespace xnyu_debug_studio
             if (InputButtons["JOYRAXISX"].selected)
             {
                 int R_axis_x = (Joystick_RAxis.Left - int.Parse(Joystick_RAxis.Tag.ToString().Split(';')[0])) * 100;
-                int R_axis_y = (Joystick_RAxis.Top - int.Parse(Joystick_RAxis.Tag.ToString().Split(';')[0])) * 100;
+                int R_axis_y = (Joystick_RAxis.Top - int.Parse(Joystick_RAxis.Tag.ToString().Split(';')[1])) * 100;
                 frame = frame + InputButtons["JOYRAXISX"].command + "(" + R_axis_x.ToString() + "); ";
                 frame = frame + InputButtons["JOYRAXISY"].command + "(" + R_axis_y.ToString() + "); ";
             }
@@ -1014,23 +1014,17 @@ namespace xnyu_debug_studio
 
             string resource_name = me.Name;
 
-            if (!resource_name.Contains("AXIS"))
+            if (!resource_name.Contains("Axis"))
             {
                 // Unset Focus
                 UnsetFocus();
 
-                // Get InputButton element
-                InputButton IB = InputButtons[resource_name];
-
-                // Change the selection bool
-                IB.selected = !IB.selected;
-                InputButtons[resource_name] = IB;
-
-                // Get the right image
-                me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject(resource_name + (IB.selected ? "_Selected" : ""));
+                InputButtons[resource_name].selected = !InputButtons[resource_name].selected;
+                me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject(resource_name + (InputButtons[resource_name].selected ? "_Selected" : ""));
 
                 UpdateFrameTextbox();
             }
+
         }
 
         public Dictionary<string, InputButton> InitInputButtons(string mapping_path)
@@ -1041,112 +1035,112 @@ namespace xnyu_debug_studio
             Dictionary<string, InputButton> InputButtonsTmp = new Dictionary<string, InputButton>();
 
             List<string> inputMapping = File.ReadAllLines(inputMappingFile).ToList<string>();
-            InputButtonsTmp.Add("ESC", new InputButton(1, inputMapping.Find(s => (s.Contains("ESC"))).Replace(" ", "").Replace(";", "").Replace("ESC=", "")));
-            InputButtonsTmp.Add("D1", new InputButton(2, inputMapping.Find(s => (s.Contains("D1"))).Replace(" ", "").Replace(";", "").Replace("D1=", "")));
-            InputButtonsTmp.Add("D2", new InputButton(3, inputMapping.Find(s => (s.Contains("D2"))).Replace(" ", "").Replace(";", "").Replace("D2=", "")));
-            InputButtonsTmp.Add("D3", new InputButton(4, inputMapping.Find(s => (s.Contains("D3"))).Replace(" ", "").Replace(";", "").Replace("D3=", "")));
-            InputButtonsTmp.Add("D4", new InputButton(5, inputMapping.Find(s => (s.Contains("D4"))).Replace(" ", "").Replace(";", "").Replace("D4=", "")));
-            InputButtonsTmp.Add("D5", new InputButton(6, inputMapping.Find(s => (s.Contains("D5"))).Replace(" ", "").Replace(";", "").Replace("D5=", "")));
-            InputButtonsTmp.Add("D6", new InputButton(7, inputMapping.Find(s => (s.Contains("D6"))).Replace(" ", "").Replace(";", "").Replace("D6=", "")));
-            InputButtonsTmp.Add("D7", new InputButton(8, inputMapping.Find(s => (s.Contains("D7"))).Replace(" ", "").Replace(";", "").Replace("D7=", "")));
-            InputButtonsTmp.Add("D8", new InputButton(9, inputMapping.Find(s => (s.Contains("D8"))).Replace(" ", "").Replace(";", "").Replace("D8=", "")));
-            InputButtonsTmp.Add("D9", new InputButton(10, inputMapping.Find(s => (s.Contains("D9"))).Replace(" ", "").Replace(";", "").Replace("D9=", "")));
-            InputButtonsTmp.Add("D0", new InputButton(11, inputMapping.Find(s => (s.Contains("D0"))).Replace(" ", "").Replace(";", "").Replace("D0=", "")));
-            InputButtonsTmp.Add("BACK", new InputButton(14, inputMapping.Find(s => (s.Contains("BACK"))).Replace(" ", "").Replace(";", "").Replace("BACK=", "")));
-            InputButtonsTmp.Add("TAB", new InputButton(15, inputMapping.Find(s => (s.Contains("TAB"))).Replace(" ", "").Replace(";", "").Replace("TAB=", "")));
-            InputButtonsTmp.Add("Q", new InputButton(16, inputMapping.Find(s => (s.Contains("Q"))).Replace(" ", "").Replace(";", "").Replace("Q=", "")));
-            InputButtonsTmp.Add("W", new InputButton(17, inputMapping.Find(s => (s.Contains("W"))).Replace(" ", "").Replace(";", "").Replace("W=", "")));
-            InputButtonsTmp.Add("E", new InputButton(18, inputMapping.Find(s => (s.Contains("E"))).Replace(" ", "").Replace(";", "").Replace("E=", "")));
-            InputButtonsTmp.Add("R", new InputButton(19, inputMapping.Find(s => (s.Contains("R"))).Replace(" ", "").Replace(";", "").Replace("R=", "")));
-            InputButtonsTmp.Add("T", new InputButton(20, inputMapping.Find(s => (s.Contains("T"))).Replace(" ", "").Replace(";", "").Replace("T=", "")));
-            InputButtonsTmp.Add("Y", new InputButton(21, inputMapping.Find(s => (s.Contains("Y"))).Replace(" ", "").Replace(";", "").Replace("Y=", "")));
-            InputButtonsTmp.Add("U", new InputButton(22, inputMapping.Find(s => (s.Contains("U"))).Replace(" ", "").Replace(";", "").Replace("U=", "")));
-            InputButtonsTmp.Add("I", new InputButton(23, inputMapping.Find(s => (s.Contains("I"))).Replace(" ", "").Replace(";", "").Replace("I=", "")));
-            InputButtonsTmp.Add("O", new InputButton(24, inputMapping.Find(s => (s.Contains("O"))).Replace(" ", "").Replace(";", "").Replace("O=", "")));
-            InputButtonsTmp.Add("P", new InputButton(25, inputMapping.Find(s => (s.Contains("P"))).Replace(" ", "").Replace(";", "").Replace("P=", "")));
-            InputButtonsTmp.Add("RETURN", new InputButton(28, inputMapping.Find(s => (s.Contains("RETURN"))).Replace(" ", "").Replace(";", "").Replace("RETURN=", "")));
-            InputButtonsTmp.Add("CTRL", new InputButton(29, inputMapping.Find(s => (s.Contains("CTRL"))).Replace(" ", "").Replace(";", "").Replace("CTRL=", "")));
-            InputButtonsTmp.Add("ALT", new InputButton(29, inputMapping.Find(s => (s.Contains("ALT"))).Replace(" ", "").Replace(";", "").Replace("ALT=", "")));
-            InputButtonsTmp.Add("A", new InputButton(30, inputMapping.Find(s => (s.Contains("A"))).Replace(" ", "").Replace(";", "").Replace("A=", "")));
-            InputButtonsTmp.Add("S", new InputButton(31, inputMapping.Find(s => (s.Contains("S"))).Replace(" ", "").Replace(";", "").Replace("S=", "")));
-            InputButtonsTmp.Add("D", new InputButton(32, inputMapping.Find(s => (s.Contains("D"))).Replace(" ", "").Replace(";", "").Replace("D=", "")));
-            InputButtonsTmp.Add("F", new InputButton(33, inputMapping.Find(s => (s.Contains("F"))).Replace(" ", "").Replace(";", "").Replace("F=", "")));
-            InputButtonsTmp.Add("G", new InputButton(34, inputMapping.Find(s => (s.Contains("G"))).Replace(" ", "").Replace(";", "").Replace("G=", "")));
-            InputButtonsTmp.Add("H", new InputButton(35, inputMapping.Find(s => (s.Contains("H"))).Replace(" ", "").Replace(";", "").Replace("H=", "")));
-            InputButtonsTmp.Add("J", new InputButton(36, inputMapping.Find(s => (s.Contains("J"))).Replace(" ", "").Replace(";", "").Replace("J=", "")));
-            InputButtonsTmp.Add("K", new InputButton(37, inputMapping.Find(s => (s.Contains("K"))).Replace(" ", "").Replace(";", "").Replace("K=", "")));
-            InputButtonsTmp.Add("L", new InputButton(38, inputMapping.Find(s => (s.Contains("L"))).Replace(" ", "").Replace(";", "").Replace("L=", "")));
-            InputButtonsTmp.Add("LSHIFT", new InputButton(42, inputMapping.Find(s => (s.Contains("LSHIFT"))).Replace(" ", "").Replace(";", "").Replace("LSHIFT=", "")));
-            InputButtonsTmp.Add("RSHIFT", new InputButton(43, inputMapping.Find(s => (s.Contains("RSHIFT"))).Replace(" ", "").Replace(";", "").Replace("RSHIFT=", "")));
-            InputButtonsTmp.Add("Z", new InputButton(44, inputMapping.Find(s => (s.Contains("Z"))).Replace(" ", "").Replace(";", "").Replace("Z=", "")));
-            InputButtonsTmp.Add("X", new InputButton(45, inputMapping.Find(s => (s.Contains("X"))).Replace(" ", "").Replace(";", "").Replace("X=", "")));
-            InputButtonsTmp.Add("C", new InputButton(46, inputMapping.Find(s => (s.Contains("C"))).Replace(" ", "").Replace(";", "").Replace("C=", "")));
-            InputButtonsTmp.Add("V", new InputButton(47, inputMapping.Find(s => (s.Contains("V"))).Replace(" ", "").Replace(";", "").Replace("V=", "")));
-            InputButtonsTmp.Add("B", new InputButton(48, inputMapping.Find(s => (s.Contains("B"))).Replace(" ", "").Replace(";", "").Replace("B=", "")));
-            InputButtonsTmp.Add("N", new InputButton(49, inputMapping.Find(s => (s.Contains("N"))).Replace(" ", "").Replace(";", "").Replace("N=", "")));
-            InputButtonsTmp.Add("M", new InputButton(50, inputMapping.Find(s => (s.Contains("M"))).Replace(" ", "").Replace(";", "").Replace("M=", "")));
-            InputButtonsTmp.Add("SPACE", new InputButton(57, inputMapping.Find(s => (s.Contains("SPACE"))).Replace(" ", "").Replace(";", "").Replace("SPACE=", "")));
-            InputButtonsTmp.Add("AUP", new InputButton(58, inputMapping.Find(s => (s.Contains("AUP"))).Replace(" ", "").Replace(";", "").Replace("AUP=", "")));
-            InputButtonsTmp.Add("ALEFT", new InputButton(59, inputMapping.Find(s => (s.Contains("ALEFT"))).Replace(" ", "").Replace(";", "").Replace("ALEFT=", "")));
-            InputButtonsTmp.Add("ARIGHT", new InputButton(60, inputMapping.Find(s => (s.Contains("ARIGHT"))).Replace(" ", "").Replace(";", "").Replace("ARIGHT=", "")));
-            InputButtonsTmp.Add("ADOWN", new InputButton(61, inputMapping.Find(s => (s.Contains("ADOWN"))).Replace(" ", "").Replace(";", "").Replace("ADOWN=", "")));
+            InputButtonsTmp.Add("ESC", new InputButton(1, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ESC"))).Replace(" ", "").Replace(";", "").Replace("ESC=", "")));
+            InputButtonsTmp.Add("D1", new InputButton(2, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D1"))).Replace(" ", "").Replace(";", "").Replace("D1=", "")));
+            InputButtonsTmp.Add("D2", new InputButton(3, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D2"))).Replace(" ", "").Replace(";", "").Replace("D2=", "")));
+            InputButtonsTmp.Add("D3", new InputButton(4, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D3"))).Replace(" ", "").Replace(";", "").Replace("D3=", "")));
+            InputButtonsTmp.Add("D4", new InputButton(5, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D4"))).Replace(" ", "").Replace(";", "").Replace("D4=", "")));
+            InputButtonsTmp.Add("D5", new InputButton(6, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D5"))).Replace(" ", "").Replace(";", "").Replace("D5=", "")));
+            InputButtonsTmp.Add("D6", new InputButton(7, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D6"))).Replace(" ", "").Replace(";", "").Replace("D6=", "")));
+            InputButtonsTmp.Add("D7", new InputButton(8, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D7"))).Replace(" ", "").Replace(";", "").Replace("D7=", "")));
+            InputButtonsTmp.Add("D8", new InputButton(9, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D8"))).Replace(" ", "").Replace(";", "").Replace("D8=", "")));
+            InputButtonsTmp.Add("D9", new InputButton(10, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D9"))).Replace(" ", "").Replace(";", "").Replace("D9=", "")));
+            InputButtonsTmp.Add("D0", new InputButton(11, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D0"))).Replace(" ", "").Replace(";", "").Replace("D0=", "")));
+            InputButtonsTmp.Add("BACK", new InputButton(14, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("BACK"))).Replace(" ", "").Replace(";", "").Replace("BACK=", "")));
+            InputButtonsTmp.Add("TAB", new InputButton(15, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("TAB"))).Replace(" ", "").Replace(";", "").Replace("TAB=", "")));
+            InputButtonsTmp.Add("Q", new InputButton(16, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("Q"))).Replace(" ", "").Replace(";", "").Replace("Q=", "")));
+            InputButtonsTmp.Add("W", new InputButton(17, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("W"))).Replace(" ", "").Replace(";", "").Replace("W=", "")));
+            InputButtonsTmp.Add("E", new InputButton(18, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("E"))).Replace(" ", "").Replace(";", "").Replace("E=", "")));
+            InputButtonsTmp.Add("R", new InputButton(19, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("R"))).Replace(" ", "").Replace(";", "").Replace("R=", "")));
+            InputButtonsTmp.Add("T", new InputButton(20, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("T"))).Replace(" ", "").Replace(";", "").Replace("T=", "")));
+            InputButtonsTmp.Add("Y", new InputButton(21, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("Y"))).Replace(" ", "").Replace(";", "").Replace("Y=", "")));
+            InputButtonsTmp.Add("U", new InputButton(22, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("U"))).Replace(" ", "").Replace(";", "").Replace("U=", "")));
+            InputButtonsTmp.Add("I", new InputButton(23, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("I"))).Replace(" ", "").Replace(";", "").Replace("I=", "")));
+            InputButtonsTmp.Add("O", new InputButton(24, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("O"))).Replace(" ", "").Replace(";", "").Replace("O=", "")));
+            InputButtonsTmp.Add("P", new InputButton(25, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("P"))).Replace(" ", "").Replace(";", "").Replace("P=", "")));
+            InputButtonsTmp.Add("RETURN", new InputButton(28, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("RETURN"))).Replace(" ", "").Replace(";", "").Replace("RETURN=", "")));
+            InputButtonsTmp.Add("CTRL", new InputButton(29, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("CTRL"))).Replace(" ", "").Replace(";", "").Replace("CTRL=", "")));
+            InputButtonsTmp.Add("ALT", new InputButton(29, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ALT"))).Replace(" ", "").Replace(";", "").Replace("ALT=", "")));
+            InputButtonsTmp.Add("A", new InputButton(30, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("A"))).Replace(" ", "").Replace(";", "").Replace("A=", "")));
+            InputButtonsTmp.Add("S", new InputButton(31, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("S"))).Replace(" ", "").Replace(";", "").Replace("S=", "")));
+            InputButtonsTmp.Add("D", new InputButton(32, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("D"))).Replace(" ", "").Replace(";", "").Replace("D=", "")));
+            InputButtonsTmp.Add("F", new InputButton(33, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F"))).Replace(" ", "").Replace(";", "").Replace("F=", "")));
+            InputButtonsTmp.Add("G", new InputButton(34, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("G"))).Replace(" ", "").Replace(";", "").Replace("G=", "")));
+            InputButtonsTmp.Add("H", new InputButton(35, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("H"))).Replace(" ", "").Replace(";", "").Replace("H=", "")));
+            InputButtonsTmp.Add("J", new InputButton(36, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("J"))).Replace(" ", "").Replace(";", "").Replace("J=", "")));
+            InputButtonsTmp.Add("K", new InputButton(37, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("K"))).Replace(" ", "").Replace(";", "").Replace("K=", "")));
+            InputButtonsTmp.Add("L", new InputButton(38, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("L"))).Replace(" ", "").Replace(";", "").Replace("L=", "")));
+            InputButtonsTmp.Add("LSHIFT", new InputButton(42, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("LSHIFT"))).Replace(" ", "").Replace(";", "").Replace("LSHIFT=", "")));
+            InputButtonsTmp.Add("RSHIFT", new InputButton(43, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("RSHIFT"))).Replace(" ", "").Replace(";", "").Replace("RSHIFT=", "")));
+            InputButtonsTmp.Add("Z", new InputButton(44, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("Z"))).Replace(" ", "").Replace(";", "").Replace("Z=", "")));
+            InputButtonsTmp.Add("X", new InputButton(45, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("X"))).Replace(" ", "").Replace(";", "").Replace("X=", "")));
+            InputButtonsTmp.Add("C", new InputButton(46, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("C"))).Replace(" ", "").Replace(";", "").Replace("C=", "")));
+            InputButtonsTmp.Add("V", new InputButton(47, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("V"))).Replace(" ", "").Replace(";", "").Replace("V=", "")));
+            InputButtonsTmp.Add("B", new InputButton(48, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("B"))).Replace(" ", "").Replace(";", "").Replace("B=", "")));
+            InputButtonsTmp.Add("N", new InputButton(49, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("N"))).Replace(" ", "").Replace(";", "").Replace("N=", "")));
+            InputButtonsTmp.Add("M", new InputButton(50, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("M"))).Replace(" ", "").Replace(";", "").Replace("M=", "")));
+            InputButtonsTmp.Add("SPACE", new InputButton(57, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("SPACE"))).Replace(" ", "").Replace(";", "").Replace("SPACE=", "")));
+            InputButtonsTmp.Add("AUP", new InputButton(58, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("AUP"))).Replace(" ", "").Replace(";", "").Replace("AUP=", "")));
+            InputButtonsTmp.Add("ALEFT", new InputButton(59, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ALEFT"))).Replace(" ", "").Replace(";", "").Replace("ALEFT=", "")));
+            InputButtonsTmp.Add("ARIGHT", new InputButton(60, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ARIGHT"))).Replace(" ", "").Replace(";", "").Replace("ARIGHT=", "")));
+            InputButtonsTmp.Add("ADOWN", new InputButton(61, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ADOWN"))).Replace(" ", "").Replace(";", "").Replace("ADOWN=", "")));
 
-            InputButtonsTmp.Add("NUM0", new InputButton(62, inputMapping.Find(s => (s.Contains("NUM0"))).Replace(" ", "").Replace(";", "").Replace("NUM0=", "")));
-            InputButtonsTmp.Add("NUM1", new InputButton(63, inputMapping.Find(s => (s.Contains("NUM1"))).Replace(" ", "").Replace(";", "").Replace("NUM1=", "")));
-            InputButtonsTmp.Add("NUM2", new InputButton(64, inputMapping.Find(s => (s.Contains("NUM2"))).Replace(" ", "").Replace(";", "").Replace("NUM2=", "")));
-            InputButtonsTmp.Add("NUM3", new InputButton(65, inputMapping.Find(s => (s.Contains("NUM3"))).Replace(" ", "").Replace(";", "").Replace("NUM3=", "")));
-            InputButtonsTmp.Add("NUM4", new InputButton(66, inputMapping.Find(s => (s.Contains("NUM4"))).Replace(" ", "").Replace(";", "").Replace("NUM4=", "")));
-            InputButtonsTmp.Add("NUM5", new InputButton(67, inputMapping.Find(s => (s.Contains("NUM5"))).Replace(" ", "").Replace(";", "").Replace("NUM5=", "")));
-            InputButtonsTmp.Add("NUM6", new InputButton(68, inputMapping.Find(s => (s.Contains("NUM6"))).Replace(" ", "").Replace(";", "").Replace("NUM6=", "")));
-            InputButtonsTmp.Add("NUM7", new InputButton(69, inputMapping.Find(s => (s.Contains("NUM7"))).Replace(" ", "").Replace(";", "").Replace("NUM7=", "")));
-            InputButtonsTmp.Add("NUM8", new InputButton(70, inputMapping.Find(s => (s.Contains("NUM8"))).Replace(" ", "").Replace(";", "").Replace("NUM8=", "")));
-            InputButtonsTmp.Add("NUM9", new InputButton(71, inputMapping.Find(s => (s.Contains("NUM9"))).Replace(" ", "").Replace(";", "").Replace("NUM9=", "")));
+            InputButtonsTmp.Add("NUM0", new InputButton(62, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM0"))).Replace(" ", "").Replace(";", "").Replace("NUM0=", "")));
+            InputButtonsTmp.Add("NUM1", new InputButton(63, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM1"))).Replace(" ", "").Replace(";", "").Replace("NUM1=", "")));
+            InputButtonsTmp.Add("NUM2", new InputButton(64, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM2"))).Replace(" ", "").Replace(";", "").Replace("NUM2=", "")));
+            InputButtonsTmp.Add("NUM3", new InputButton(65, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM3"))).Replace(" ", "").Replace(";", "").Replace("NUM3=", "")));
+            InputButtonsTmp.Add("NUM4", new InputButton(66, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM4"))).Replace(" ", "").Replace(";", "").Replace("NUM4=", "")));
+            InputButtonsTmp.Add("NUM5", new InputButton(67, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM5"))).Replace(" ", "").Replace(";", "").Replace("NUM5=", "")));
+            InputButtonsTmp.Add("NUM6", new InputButton(68, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM6"))).Replace(" ", "").Replace(";", "").Replace("NUM6=", "")));
+            InputButtonsTmp.Add("NUM7", new InputButton(69, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM7"))).Replace(" ", "").Replace(";", "").Replace("NUM7=", "")));
+            InputButtonsTmp.Add("NUM8", new InputButton(70, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM8"))).Replace(" ", "").Replace(";", "").Replace("NUM8=", "")));
+            InputButtonsTmp.Add("NUM9", new InputButton(71, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("NUM9"))).Replace(" ", "").Replace(";", "").Replace("NUM9=", "")));
 
-            InputButtonsTmp.Add("F1", new InputButton(72, inputMapping.Find(s => (s.Contains("F1"))).Replace(" ", "").Replace(";", "").Replace("F1=", "")));
-            InputButtonsTmp.Add("F2", new InputButton(73, inputMapping.Find(s => (s.Contains("F2"))).Replace(" ", "").Replace(";", "").Replace("F2=", "")));
-            InputButtonsTmp.Add("F3", new InputButton(74, inputMapping.Find(s => (s.Contains("F3"))).Replace(" ", "").Replace(";", "").Replace("F3=", "")));
-            InputButtonsTmp.Add("F4", new InputButton(75, inputMapping.Find(s => (s.Contains("F4"))).Replace(" ", "").Replace(";", "").Replace("F4=", "")));
-            InputButtonsTmp.Add("F5", new InputButton(76, inputMapping.Find(s => (s.Contains("F5"))).Replace(" ", "").Replace(";", "").Replace("F5=", "")));
-            InputButtonsTmp.Add("F6", new InputButton(77, inputMapping.Find(s => (s.Contains("F6"))).Replace(" ", "").Replace(";", "").Replace("F6=", "")));
-            InputButtonsTmp.Add("F7", new InputButton(78, inputMapping.Find(s => (s.Contains("F7"))).Replace(" ", "").Replace(";", "").Replace("F7=", "")));
-            InputButtonsTmp.Add("F8", new InputButton(79, inputMapping.Find(s => (s.Contains("F8"))).Replace(" ", "").Replace(";", "").Replace("F8=", "")));
-            InputButtonsTmp.Add("F9", new InputButton(80, inputMapping.Find(s => (s.Contains("F9"))).Replace(" ", "").Replace(";", "").Replace("F9=", "")));
-            InputButtonsTmp.Add("F10", new InputButton(81, inputMapping.Find(s => (s.Contains("F10"))).Replace(" ", "").Replace(";", "").Replace("F10=", "")));
-            InputButtonsTmp.Add("F11", new InputButton(82, inputMapping.Find(s => (s.Contains("F11"))).Replace(" ", "").Replace(";", "").Replace("F11=", "")));
-            InputButtonsTmp.Add("F12", new InputButton(83, inputMapping.Find(s => (s.Contains("F12"))).Replace(" ", "").Replace(";", "").Replace("F12=", "")));
+            InputButtonsTmp.Add("F1", new InputButton(72, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F1"))).Replace(" ", "").Replace(";", "").Replace("F1=", "")));
+            InputButtonsTmp.Add("F2", new InputButton(73, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F2"))).Replace(" ", "").Replace(";", "").Replace("F2=", "")));
+            InputButtonsTmp.Add("F3", new InputButton(74, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F3"))).Replace(" ", "").Replace(";", "").Replace("F3=", "")));
+            InputButtonsTmp.Add("F4", new InputButton(75, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F4"))).Replace(" ", "").Replace(";", "").Replace("F4=", "")));
+            InputButtonsTmp.Add("F5", new InputButton(76, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F5"))).Replace(" ", "").Replace(";", "").Replace("F5=", "")));
+            InputButtonsTmp.Add("F6", new InputButton(77, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F6"))).Replace(" ", "").Replace(";", "").Replace("F6=", "")));
+            InputButtonsTmp.Add("F7", new InputButton(78, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F7"))).Replace(" ", "").Replace(";", "").Replace("F7=", "")));
+            InputButtonsTmp.Add("F8", new InputButton(79, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F8"))).Replace(" ", "").Replace(";", "").Replace("F8=", "")));
+            InputButtonsTmp.Add("F9", new InputButton(80, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F9"))).Replace(" ", "").Replace(";", "").Replace("F9=", "")));
+            InputButtonsTmp.Add("F10", new InputButton(81, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F10"))).Replace(" ", "").Replace(";", "").Replace("F10=", "")));
+            InputButtonsTmp.Add("F11", new InputButton(82, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F11"))).Replace(" ", "").Replace(";", "").Replace("F11=", "")));
+            InputButtonsTmp.Add("F12", new InputButton(83, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("F12"))).Replace(" ", "").Replace(";", "").Replace("F12=", "")));
 
-            InputButtonsTmp.Add("JOYLAXISX", new InputButton(84, inputMapping.Find(s => (s.Contains("JOYLAXISX"))).Replace(" ", "").Replace(";", "").Replace("JOYLAXISX=", "")));
-            InputButtonsTmp.Add("JOYLAXISY", new InputButton(85, inputMapping.Find(s => (s.Contains("JOYLAXISY"))).Replace(" ", "").Replace(";", "").Replace("JOYLAXISY=", "")));
-            InputButtonsTmp.Add("JOYRAXISX", new InputButton(86, inputMapping.Find(s => (s.Contains("JOYRAXISX"))).Replace(" ", "").Replace(";", "").Replace("JOYRAXISX=", "")));
-            InputButtonsTmp.Add("JOYRAXISY", new InputButton(87, inputMapping.Find(s => (s.Contains("JOYRAXISY"))).Replace(" ", "").Replace(";", "").Replace("JOYRAXISY=", "")));
-            InputButtonsTmp.Add("JOYLT", new InputButton(88, inputMapping.Find(s => (s.Contains("JOYLT"))).Replace(" ", "").Replace(";", "").Replace("JOYLT=", "")));
-            InputButtonsTmp.Add("JOYRT", new InputButton(89, inputMapping.Find(s => (s.Contains("JOYRT"))).Replace(" ", "").Replace(";", "").Replace("JOYRT=", "")));
-            InputButtonsTmp.Add("JOYUP", new InputButton(90, inputMapping.Find(s => (s.Contains("JOYUP"))).Replace(" ", "").Replace(";", "").Replace("JOYUP=", "")));
-            InputButtonsTmp.Add("JOYRIGHT", new InputButton(91, inputMapping.Find(s => (s.Contains("JOYRIGHT"))).Replace(" ", "").Replace(";", "").Replace("JOYRIGHT=", "")));
-            InputButtonsTmp.Add("JOYDOWN", new InputButton(92, inputMapping.Find(s => (s.Contains("JOYDOWN"))).Replace(" ", "").Replace(";", "").Replace("JOYDOWN=", "")));
-            InputButtonsTmp.Add("JOYLEFT", new InputButton(93, inputMapping.Find(s => (s.Contains("JOYLEFT"))).Replace(" ", "").Replace(";", "").Replace("JOYLEFT=", "")));
-            InputButtonsTmp.Add("JOYA", new InputButton(94, inputMapping.Find(s => (s.Contains("JOYA"))).Replace(" ", "").Replace(";", "").Replace("JOYA=", "")));
-            InputButtonsTmp.Add("JOYB", new InputButton(95, inputMapping.Find(s => (s.Contains("JOYB"))).Replace(" ", "").Replace(";", "").Replace("JOYB=", "")));
-            InputButtonsTmp.Add("JOYX", new InputButton(96, inputMapping.Find(s => (s.Contains("JOYX"))).Replace(" ", "").Replace(";", "").Replace("JOYX=", "")));
-            InputButtonsTmp.Add("JOYY", new InputButton(97, inputMapping.Find(s => (s.Contains("JOYY"))).Replace(" ", "").Replace(";", "").Replace("JOYY=", "")));
-            InputButtonsTmp.Add("JOYLB", new InputButton(98, inputMapping.Find(s => (s.Contains("JOYLB"))).Replace(" ", "").Replace(";", "").Replace("JOYLB=", "")));
-            InputButtonsTmp.Add("JOYRB", new InputButton(99, inputMapping.Find(s => (s.Contains("JOYRB"))).Replace(" ", "").Replace(";", "").Replace("JOYRB=", "")));
-            InputButtonsTmp.Add("JOYSELECT", new InputButton(100, inputMapping.Find(s => (s.Contains("JOYSELECT"))).Replace(" ", "").Replace(";", "").Replace("JOYSELECT=", "")));
-            InputButtonsTmp.Add("JOYSTART", new InputButton(101, inputMapping.Find(s => (s.Contains("JOYSTART"))).Replace(" ", "").Replace(";", "").Replace("JOYSTART=", "")));
+            InputButtonsTmp.Add("JOYLAXISX", new InputButton(84, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYLAXISX"))).Replace(" ", "").Replace(";", "").Replace("JOYLAXISX=", "")));
+            InputButtonsTmp.Add("JOYLAXISY", new InputButton(85, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYLAXISY"))).Replace(" ", "").Replace(";", "").Replace("JOYLAXISY=", "")));
+            InputButtonsTmp.Add("JOYRAXISX", new InputButton(86, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYRAXISX"))).Replace(" ", "").Replace(";", "").Replace("JOYRAXISX=", "")));
+            InputButtonsTmp.Add("JOYRAXISY", new InputButton(87, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYRAXISY"))).Replace(" ", "").Replace(";", "").Replace("JOYRAXISY=", "")));
+            InputButtonsTmp.Add("JOYLT", new InputButton(88, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYLT"))).Replace(" ", "").Replace(";", "").Replace("JOYLT=", "")));
+            InputButtonsTmp.Add("JOYRT", new InputButton(89, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYRT"))).Replace(" ", "").Replace(";", "").Replace("JOYRT=", "")));
+            InputButtonsTmp.Add("JOYUP", new InputButton(90, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYUP"))).Replace(" ", "").Replace(";", "").Replace("JOYUP=", "")));
+            InputButtonsTmp.Add("JOYRIGHT", new InputButton(91, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYRIGHT"))).Replace(" ", "").Replace(";", "").Replace("JOYRIGHT=", "")));
+            InputButtonsTmp.Add("JOYDOWN", new InputButton(92, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYDOWN"))).Replace(" ", "").Replace(";", "").Replace("JOYDOWN=", "")));
+            InputButtonsTmp.Add("JOYLEFT", new InputButton(93, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYLEFT"))).Replace(" ", "").Replace(";", "").Replace("JOYLEFT=", "")));
+            InputButtonsTmp.Add("JOYA", new InputButton(94, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYA"))).Replace(" ", "").Replace(";", "").Replace("JOYA=", "")));
+            InputButtonsTmp.Add("JOYB", new InputButton(95, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYB"))).Replace(" ", "").Replace(";", "").Replace("JOYB=", "")));
+            InputButtonsTmp.Add("JOYX", new InputButton(96, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYX"))).Replace(" ", "").Replace(";", "").Replace("JOYX=", "")));
+            InputButtonsTmp.Add("JOYY", new InputButton(97, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYY"))).Replace(" ", "").Replace(";", "").Replace("JOYY=", "")));
+            InputButtonsTmp.Add("JOYLB", new InputButton(98, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYLB"))).Replace(" ", "").Replace(";", "").Replace("JOYLB=", "")));
+            InputButtonsTmp.Add("JOYRB", new InputButton(99, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYRB"))).Replace(" ", "").Replace(";", "").Replace("JOYRB=", "")));
+            InputButtonsTmp.Add("JOYSELECT", new InputButton(100, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYSELECT"))).Replace(" ", "").Replace(";", "").Replace("JOYSELECT=", "")));
+            InputButtonsTmp.Add("JOYSTART", new InputButton(101, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("JOYSTART"))).Replace(" ", "").Replace(";", "").Replace("JOYSTART=", "")));
 
-            InputButtonsTmp.Add("LMB", new InputButton(102, inputMapping.Find(s => (s.Contains("LMB"))).Replace(" ", "").Replace(";", "").Replace("LMB=", "")));
-            InputButtonsTmp.Add("MB", new InputButton(103, inputMapping.Find(s => (s.Contains("MB"))).Replace(" ", "").Replace(";", "").Replace("MB=", "")));
-            InputButtonsTmp.Add("RMB", new InputButton(104, inputMapping.Find(s => (s.Contains("RMB"))).Replace(" ", "").Replace(";", "").Replace("RMB=", "")));
-            InputButtonsTmp.Add("ME1", new InputButton(105, inputMapping.Find(s => (s.Contains("ME1"))).Replace(" ", "").Replace(";", "").Replace("ME1=", "")));
-            InputButtonsTmp.Add("ME2", new InputButton(106, inputMapping.Find(s => (s.Contains("ME2"))).Replace(" ", "").Replace(";", "").Replace("ME2=", "")));
-            InputButtonsTmp.Add("WHEEL", new InputButton(107, inputMapping.Find(s => (s.Contains("WHEEL"))).Replace(" ", "").Replace(";", "").Replace("WHEEL=", "")));
-            InputButtonsTmp.Add("MOUSEX", new InputButton(108, inputMapping.Find(s => (s.Contains("MOUSEX"))).Replace(" ", "").Replace(";", "").Replace("MOUSEX=", "")));
-            InputButtonsTmp.Add("MOUSEY", new InputButton(109, inputMapping.Find(s => (s.Contains("MOUSEY"))).Replace(" ", "").Replace(";", "").Replace("MOUSEY=", "")));
+            InputButtonsTmp.Add("LMB", new InputButton(102, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("LMB"))).Replace(" ", "").Replace(";", "").Replace("LMB=", "")));
+            InputButtonsTmp.Add("MB", new InputButton(103, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("MB"))).Replace(" ", "").Replace(";", "").Replace("MB=", "")));
+            InputButtonsTmp.Add("RMB", new InputButton(104, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("RMB"))).Replace(" ", "").Replace(";", "").Replace("RMB=", "")));
+            InputButtonsTmp.Add("ME1", new InputButton(105, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ME1"))).Replace(" ", "").Replace(";", "").Replace("ME1=", "")));
+            InputButtonsTmp.Add("ME2", new InputButton(106, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("ME2"))).Replace(" ", "").Replace(";", "").Replace("ME2=", "")));
+            InputButtonsTmp.Add("WHEEL", new InputButton(107, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("WHEEL"))).Replace(" ", "").Replace(";", "").Replace("WHEEL=", "")));
+            InputButtonsTmp.Add("MOUSEX", new InputButton(108, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("MOUSEX"))).Replace(" ", "").Replace(";", "").Replace("MOUSEX=", "")));
+            InputButtonsTmp.Add("MOUSEY", new InputButton(109, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("MOUSEY"))).Replace(" ", "").Replace(";", "").Replace("MOUSEY=", "")));
 
-            InputButtonsTmp.Add("COMMA", new InputButton(110, inputMapping.Find(s => (s.Contains("COMMA"))).Replace(" ", "").Replace(";", "").Replace("COMMA=", "")));
-            InputButtonsTmp.Add("DOT", new InputButton(111, inputMapping.Find(s => (s.Contains("DOT"))).Replace(" ", "").Replace(";", "").Replace("DOT=", "")));
-            InputButtonsTmp.Add("PLUS", new InputButton(112, inputMapping.Find(s => (s.Contains("PLUS"))).Replace(" ", "").Replace(";", "").Replace("PLUS=", "")));
-            InputButtonsTmp.Add("MINUS", new InputButton(113, inputMapping.Find(s => (s.Contains("MINUS"))).Replace(" ", "").Replace(";", "").Replace("MINUS=", "")));
+            InputButtonsTmp.Add("COMMA", new InputButton(110, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("COMMA"))).Replace(" ", "").Replace(";", "").Replace("COMMA=", "")));
+            InputButtonsTmp.Add("DOT", new InputButton(111, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("DOT"))).Replace(" ", "").Replace(";", "").Replace("DOT=", "")));
+            InputButtonsTmp.Add("PLUS", new InputButton(112, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("PLUS"))).Replace(" ", "").Replace(";", "").Replace("PLUS=", "")));
+            InputButtonsTmp.Add("MINUS", new InputButton(113, inputMapping.Find(s => (s.Substring(0, s.IndexOf("=")).Equals("MINUS"))).Replace(" ", "").Replace(";", "").Replace("MINUS=", "")));
 
             return InputButtonsTmp;
         }
@@ -1168,8 +1162,18 @@ namespace xnyu_debug_studio
                 {
                     if (!me.Name.Contains("axis", StringComparison.OrdinalIgnoreCase))
                     {
-                        InputButtons[me.Name].selected = false;
-                        me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject(me.Name);
+                        if (me.Name == "Joystick_LAxis")
+                        {
+                            InputButtons["JOYLAXISX"].selected = false;
+                            InputButtons["JOYLAXISY"].selected = false;
+                            me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject("JOYLAXIS");
+                        }
+                        if (me.Name == "Joystick_RAxis")
+                        {
+                            InputButtons["JOYRAXISX"].selected = false;
+                            InputButtons["JOYRAXISY"].selected = false;
+                            me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject("JOYLAXIS");
+                        }
                     }
                 }
             }
@@ -1199,11 +1203,21 @@ namespace xnyu_debug_studio
                 if (int.Parse(me.Tag.ToString().Split(';')[2]) == me.Left && int.Parse(me.Tag.ToString().Split(';')[3]) == me.Top)
                 {
                     // Change current selection
-                    string key = InputButtons.First(b => (b.Key.Contains(me.Name))).Key;
-                    InputButtons[key].selected = !InputButtons[key].selected;
-
-                    // Update axis picture
-                    me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject(me.Name + (InputButtons[key].selected ? "_Selected" : ""));
+                    bool isSelected = false;
+                    if (me.Name == "Joystick_LAxis")
+                    {
+                        InputButtons["JOYLAXISX"].selected = !InputButtons["JOYLAXISX"].selected;
+                        InputButtons["JOYLAXISY"].selected = !InputButtons["JOYLAXISY"].selected;
+                        isSelected = InputButtons["JOYLAXISX"].selected;
+                        me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject("JOYLAXIS" + (isSelected ? "_Selected" : ""));
+                    }
+                    if (me.Name == "Joystick_RAxis")
+                    {
+                        InputButtons["JOYRAXISX"].selected = !InputButtons["JOYRAXISX"].selected;
+                        InputButtons["JOYRAXISY"].selected = !InputButtons["JOYRAXISY"].selected;
+                        isSelected = InputButtons["JOYRAXISX"].selected;
+                        me.BackgroundImage = (Bitmap)xnyu_debug_studio.Properties.Resources.ResourceManager.GetObject("JOYRAXIS" + (isSelected ? "_Selected" : ""));
+                    }
                 }
                 else
                 {

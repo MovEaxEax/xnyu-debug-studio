@@ -1,0 +1,205 @@
+main
+{
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYB(); }
+	frame { JOYA(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYB(); }
+	frame { JOYA(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYB(); }
+	frame { JOYA(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYB(); }
+	frame { JOYA(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { JOYUP(); }
+	frame { }
+	frame { JOYB(); }
+	frame { JOYA(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { JOYB(); }
+	frame { }
+}
+
+//###################################
+//# Recording Script time: 22-34-51 #
+//###################################
+
+main
+{
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+	frame { JOYDOWN();}
+	frame { }
+
+}
+

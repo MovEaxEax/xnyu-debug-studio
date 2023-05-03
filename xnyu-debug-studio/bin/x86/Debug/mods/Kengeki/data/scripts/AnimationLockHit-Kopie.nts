@@ -1,0 +1,18 @@
+main
+{
+//float x = 100.0;
+//float y = 200.0;
+//float z = 300.0;
+//Player.SetPosition(x,y,z);
+
+int32 iteration = 0;
+int32 stopper = 130;
+while(stopper<=iteration)
+{
+	frame{JOYDOWN();}
+	iteration+=1;
+}
+
+
+}
+

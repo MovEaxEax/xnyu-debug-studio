@@ -113,6 +113,8 @@ namespace xnyu_debug_studio
             this.checkbox_devmode = new System.Windows.Forms.CheckBox();
             this.checkbox_active = new System.Windows.Forms.CheckBox();
             this.Inject_Button = new System.Windows.Forms.PictureBox();
+            this.JOYSELECT = new System.Windows.Forms.PictureBox();
+            this.JOYSTART = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Play_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Title_Picture)).BeginInit();
@@ -184,6 +186,8 @@ namespace xnyu_debug_studio
             ((System.ComponentModel.ISupportInitialize)(this.SPACE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Joystick_RAxis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JOYSELECT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JOYSTART)).BeginInit();
             this.SuspendLayout();
             // 
             // Box_Templates
@@ -1180,6 +1184,9 @@ namespace xnyu_debug_studio
             this.Joystick_RAxis.TabStop = false;
             this.Joystick_RAxis.Tag = "373;301;373;301";
             this.Joystick_RAxis.Click += new System.EventHandler(this.Input_Button_Click);
+            this.Joystick_RAxis.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Joystick_Axis_MouseDown);
+            this.Joystick_RAxis.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Joystick_Axis_MouseMove);
+            this.Joystick_RAxis.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Joystick_Axis_MouseUp);
             // 
             // Progressbar_Inject
             // 
@@ -1226,6 +1233,32 @@ namespace xnyu_debug_studio
             this.Inject_Button.MouseEnter += new System.EventHandler(this.Inject_Button_Hover);
             this.Inject_Button.MouseLeave += new System.EventHandler(this.Inject_Button_UnHover);
             // 
+            // JOYSELECT
+            // 
+            this.JOYSELECT.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.JOYSELECT;
+            this.JOYSELECT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.JOYSELECT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.JOYSELECT.Location = new System.Drawing.Point(333, 272);
+            this.JOYSELECT.Name = "JOYSELECT";
+            this.JOYSELECT.Size = new System.Drawing.Size(12, 12);
+            this.JOYSELECT.TabIndex = 106;
+            this.JOYSELECT.TabStop = false;
+            this.JOYSELECT.Tag = "1";
+            this.JOYSELECT.Click += new System.EventHandler(this.Input_Button_Click);
+            // 
+            // JOYSTART
+            // 
+            this.JOYSTART.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.JOYSTART;
+            this.JOYSTART.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.JOYSTART.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.JOYSTART.Location = new System.Drawing.Point(366, 272);
+            this.JOYSTART.Name = "JOYSTART";
+            this.JOYSTART.Size = new System.Drawing.Size(12, 12);
+            this.JOYSTART.TabIndex = 107;
+            this.JOYSTART.TabStop = false;
+            this.JOYSTART.Tag = "1";
+            this.JOYSTART.Click += new System.EventHandler(this.Input_Button_Click);
+            // 
             // Workspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,6 +1266,8 @@ namespace xnyu_debug_studio
             this.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(480, 557);
+            this.Controls.Add(this.JOYSTART);
+            this.Controls.Add(this.JOYSELECT);
             this.Controls.Add(this.Inject_Button);
             this.Controls.Add(this.checkbox_active);
             this.Controls.Add(this.checkbox_devmode);
@@ -1395,6 +1430,8 @@ namespace xnyu_debug_studio
             ((System.ComponentModel.ISupportInitialize)(this.SPACE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Joystick_RAxis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inject_Button)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JOYSELECT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JOYSTART)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1485,6 +1522,8 @@ namespace xnyu_debug_studio
         private System.Windows.Forms.CheckBox checkbox_devmode;
         private System.Windows.Forms.CheckBox checkbox_active;
         private System.Windows.Forms.PictureBox Inject_Button;
+        private System.Windows.Forms.PictureBox JOYSELECT;
+        private System.Windows.Forms.PictureBox JOYSTART;
     }
 }
 

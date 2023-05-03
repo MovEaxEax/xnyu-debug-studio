@@ -27,7 +27,11 @@ Camera
 Objects
 {
 	ObjectsCounter(int32);
-	EnemiesCounter(int32);
+}
+
+Game
+{
+	IsGamePaused(bool);
 }
 
 Boss

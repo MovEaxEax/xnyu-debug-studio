@@ -55,7 +55,11 @@ Camera
 Objects
 {
 	SetObjectsCounter(int32);
-	SetEnemiesCounter(int32);
+}
+
+Game
+{
+	SetGamePaused(bool);
 }
 
 Squirrel
