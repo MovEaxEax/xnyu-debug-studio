@@ -1,0 +1,6 @@
+myFuncA
+{
+	frame{JOYDOWN();}
+	frame{JOYDOWN();}
+	frame{JOYDOWN();}
+}

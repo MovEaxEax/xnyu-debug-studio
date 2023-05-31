@@ -1,5 +1,5 @@
 Slot 2
-NUM_1=Player.ChangeDirection();
+NUM_1=;
 NUM_2=;
 NUM_3=;
 NUM_4=;
@@ -12,8 +12,8 @@ NUM_/=;
 NUM_*=;
 NUM_-=;
 NUM_+=;
-F1=DebugMenu.ChangeHotkeySlot(-1);
-F2=DebugMenu.ChangeHotkeySlot(1);
+F1=;
+F2=;
 F3=;
 F4=;
 F5=;

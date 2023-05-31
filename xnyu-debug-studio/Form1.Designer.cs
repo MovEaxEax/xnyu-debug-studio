@@ -115,6 +115,7 @@ namespace xnyu_debug_studio
             this.Inject_Button = new System.Windows.Forms.PictureBox();
             this.JOYSELECT = new System.Windows.Forms.PictureBox();
             this.JOYSTART = new System.Windows.Forms.PictureBox();
+            this.checkbox_overclock = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Play_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Title_Picture)).BeginInit();
@@ -1259,6 +1260,17 @@ namespace xnyu_debug_studio
             this.JOYSTART.Tag = "1";
             this.JOYSTART.Click += new System.EventHandler(this.Input_Button_Click);
             // 
+            // checkbox_overclock
+            // 
+            this.checkbox_overclock.AutoSize = true;
+            this.checkbox_overclock.Location = new System.Drawing.Point(12, 345);
+            this.checkbox_overclock.Name = "checkbox_overclock";
+            this.checkbox_overclock.Size = new System.Drawing.Size(115, 17);
+            this.checkbox_overclock.TabIndex = 108;
+            this.checkbox_overclock.Text = "Overclock process";
+            this.checkbox_overclock.UseVisualStyleBackColor = true;
+            this.checkbox_overclock.Click += new System.EventHandler(this.Overclock_Checkbox_Checked);
+            // 
             // Workspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1266,6 +1278,7 @@ namespace xnyu_debug_studio
             this.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(480, 557);
+            this.Controls.Add(this.checkbox_overclock);
             this.Controls.Add(this.JOYSTART);
             this.Controls.Add(this.JOYSELECT);
             this.Controls.Add(this.Inject_Button);
@@ -1524,6 +1537,7 @@ namespace xnyu_debug_studio
         private System.Windows.Forms.PictureBox Inject_Button;
         private System.Windows.Forms.PictureBox JOYSELECT;
         private System.Windows.Forms.PictureBox JOYSTART;
+        private System.Windows.Forms.CheckBox checkbox_overclock;
     }
 }
 

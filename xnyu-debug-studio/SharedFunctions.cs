@@ -37,6 +37,7 @@ namespace xnyu_debug_studio
         public static UIntPtr receiveFrameTASPointer = UIntPtr.Zero;
         public static UIntPtr toggleDevConsolePointer = UIntPtr.Zero;
         public static UIntPtr toggleDevModePointer = UIntPtr.Zero;
+        public static UIntPtr toggleOverclockPointer = UIntPtr.Zero;
         public static UIntPtr ejectDebuggerPointer = UIntPtr.Zero;
         public static UIntPtr checkIfRecordScriptIsDoneTASPointer = UIntPtr.Zero;
         public static UIntPtr checkIfPlayScriptIsDoneTASPointer = UIntPtr.Zero;
@@ -105,6 +106,7 @@ namespace xnyu_debug_studio
             receiveFrameTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "receiveFrameTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             toggleDevConsolePointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "toggleDevConsole").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             toggleDevModePointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "toggleDevMode").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
+            toggleOverclockPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "toggleOverclocker").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             ejectDebuggerPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "ejectDebugger").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfRecordScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfRecordScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfPlayScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfPlayScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
@@ -166,6 +168,11 @@ namespace xnyu_debug_studio
         public int toggleDevMode(string parameter)
         {
             return InvokeFunction(toggleDevModePointer, parameter, proc.ProcessName);
+        }
+
+        public int toggleOverclock(string parameter)
+        {
+            return InvokeFunction(toggleOverclockPointer, parameter, proc.ProcessName);
         }
 
         public int ejectDebugger(string parameter)

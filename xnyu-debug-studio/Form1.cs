@@ -970,6 +970,12 @@ namespace xnyu_debug_studio
             sharedFunctions.toggleDevMode(toggleDevModeParams);
         }
 
+        private void Overclock_Checkbox_Checked(object sender, EventArgs e)
+        {
+            string toggleOverclockParams = checkbox_devmode.Checked ? "1;" : "0;";
+            sharedFunctions.toggleOverclock(toggleOverclockParams);
+        }
+
         public void UpdateFrameTextbox()
         {
             // Frame construction

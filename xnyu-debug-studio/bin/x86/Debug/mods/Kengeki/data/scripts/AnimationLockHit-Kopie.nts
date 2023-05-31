@@ -1,18 +1,41 @@
 main
 {
-//float x = 100.0;
-//float y = 200.0;
-//float z = 300.0;
-//Player.SetPosition(x,y,z);
+	float posX = 430.0;
+	float posY = -15550.0;
+	float posZ = 1200.0;
 
-int32 iteration = 0;
-int32 stopper = 130;
-while(stopper<=iteration)
-{
-	frame{JOYDOWN();}
-	iteration+=1;
-}
+	while(Player.Position-Y > -15600.0)
+	{
+		Player.SetPosition(posX, posY, 2000.0);
+		repeat(3)
+		{
+			Player.SetPosition(posX, posY, posZ);
+			frame{}
+		}
 
+		posX += 0.75;
+		
+		repeat(2)
+		{
+			repeat(10)
+			{
+				frame { JOYUP(); }
+			}
+			repeat(10)
+			{
+				frame { JOYY(); }
+			}
+			repeat(190)
+			{
+				frame{}
+				if(Player.Position-Y < -15580.0)
+				{
+					log("FINDING: ", posX);
+					Exit();
+				}
+			}
+		}
+	}
 
 }
 
