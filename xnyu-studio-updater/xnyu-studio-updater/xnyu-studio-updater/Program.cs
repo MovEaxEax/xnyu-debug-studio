@@ -58,11 +58,11 @@ namespace xnyu_studio_updater
                     var destinationPath = Path.Combine(extractPath, entry.FullName);
                     var destinationDirectory = Path.GetDirectoryName(destinationPath);
 
-                    // Ensure the directory exists
-                    Directory.CreateDirectory(destinationDirectory);
-
-                    // Extract the entry and overwrite if the file already exists
-                    entry.ExtractToFile(destinationPath, overwrite: true);
+                    if (!destinationPath.Contains("xnyu-studio-updater"))
+                    {
+                        Directory.CreateDirectory(destinationDirectory);
+                        entry.ExtractToFile(destinationPath, overwrite: true);
+                    }
                 }
             }
         }
