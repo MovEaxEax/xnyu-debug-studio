@@ -7,11 +7,13 @@ using System.Drawing;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 using gh;
 using SharpMonoInjector;
 using static gh.ghapi;
@@ -37,6 +39,9 @@ namespace xnyu_debug_studio
         public static extern short GetAsyncKeyState(Keys ArrowKeys);
 
         // Window names
+        public static string applicationVersion = "0.9.0";
+        public static string[] applicationVersionNumbers = { "0", "9", "0" };
+
         public static string xnyu_window_short_name = "NTS v0.9";
         public static string xnyu_window_long_name = "xNyu TAS Studio v0.9";
 
@@ -155,6 +160,25 @@ namespace xnyu_debug_studio
                 }
             }
         }
+
+        public async Task<string> GetOnlineDataAsync(string url)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync(url))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var content = await response.Content.ReadAsStringAsync();
+                    return content;
+                }
+            }
+        }
+
+        public string GetOnlineData(string url)
+        {
+            return GetOnlineDataAsync(url).GetAwaiter().GetResult();
+        }
+
         public Workspace()
         {
             // Form init
@@ -194,6 +218,39 @@ namespace xnyu_debug_studio
                 string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Kengeki\Debug\kengeki-mod.dll";
                 string dstMod = cD + @"\mods\Kengeki\mod\kengeki-mod.dll";
                 if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
+            }
+            else
+            {
+                if (NetworkInterface.GetIsNetworkAvailable())
+                {
+                    string currentVersion = "http://raw.githubusercontent.com/MovEaxEax/xnyu-debug-studio/main/version.txt";
+                    string version = GetOnlineData(currentVersion);
+                    string[] versionNumbers = version.Split('.');
+                    bool shouldUpdate = false;
+                    if (version != applicationVersion)
+                    {
+                        for (int i = 0; i < versionNumbers.Length; i++)
+                        {
+                            if (int.Parse(versionNumbers[i]) > int.Parse(applicationVersionNumbers[i]))
+                            {
+                                shouldUpdate = true;
+                                break;
+                            }
+                        }
+                    }
+                    if(shouldUpdate)
+                    {
+                        DialogResult result = MessageBox.Show("There is a newer verison of the debug studio available to download. Do you wish to update now? (recommended)", "Version v" + version + " is available", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Go for the update
+                            Process.Start(Directory.GetCurrentDirectory() + @"\xnyu-studio-updater.exe");
+                            Thread.Sleep(1000);
+                            Application.Exit();
+                        }
+                    }
+                }
             }
 
             // Create and read settings
