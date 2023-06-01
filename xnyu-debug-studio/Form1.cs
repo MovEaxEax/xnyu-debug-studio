@@ -46,7 +46,7 @@ namespace xnyu_debug_studio
         public static string xnyu_window_long_name = "xNyu TAS Studio v0.9";
 
         // Copies files etc, when opened in visual studio
-        public static bool visualStudioMode = true;
+        public static bool visualStudioMode = false;
 
         // Template
         public static Template CurrentTemplate = null;
@@ -165,18 +165,30 @@ namespace xnyu_debug_studio
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync(url))
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)))
                 {
-                    response.EnsureSuccessStatusCode();
-                    var content = await response.Content.ReadAsStringAsync();
-                    return content;
+                    using (var response = await httpClient.GetAsync(url, cts.Token).ConfigureAwait(false))
+                    {
+                        response.EnsureSuccessStatusCode();
+                        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                        return content;
+                    }
                 }
             }
         }
 
         public string GetOnlineData(string url)
         {
-            return GetOnlineDataAsync(url).GetAwaiter().GetResult();
+            try
+            {
+                return GetOnlineDataAsync(url).GetAwaiter().GetResult();
+            }
+            catch (TaskCanceledException)
+            {
+                throw new TimeoutException("The request timed out.");
+            }
         }
 
         public Workspace()
@@ -224,7 +236,9 @@ namespace xnyu_debug_studio
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
                     string currentVersion = "http://raw.githubusercontent.com/MovEaxEax/xnyu-debug-studio/main/version.txt";
+                    MessageBox.Show("111");
                     string version = GetOnlineData(currentVersion);
+                    MessageBox.Show("222");
                     string[] versionNumbers = version.Split('.');
                     bool shouldUpdate = false;
                     if (version != applicationVersion)
