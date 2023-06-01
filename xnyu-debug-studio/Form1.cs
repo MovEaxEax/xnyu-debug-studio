@@ -39,11 +39,11 @@ namespace xnyu_debug_studio
         public static extern short GetAsyncKeyState(Keys ArrowKeys);
 
         // Window names
-        public static string applicationVersion = "0.9.0";
-        public static string[] applicationVersionNumbers = { "0", "9", "0" };
+        public static string applicationVersion = "1.0.0";
+        public static string[] applicationVersionNumbers = { "1", "0", "0" };
 
-        public static string xnyu_window_short_name = "NTS v0.9";
-        public static string xnyu_window_long_name = "xNyu TAS Studio v0.9";
+        public static string xnyu_window_short_name = "NTS v" + applicationVersion;
+        public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
 
         // Copies files etc, when opened in visual studio
         public static bool visualStudioMode = false;
@@ -236,9 +236,7 @@ namespace xnyu_debug_studio
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
                     string currentVersion = "http://raw.githubusercontent.com/MovEaxEax/xnyu-debug-studio/main/version.txt";
-                    MessageBox.Show("111");
                     string version = GetOnlineData(currentVersion);
-                    MessageBox.Show("222");
                     string[] versionNumbers = version.Split('.');
                     bool shouldUpdate = false;
                     if (version != applicationVersion)
@@ -292,6 +290,7 @@ namespace xnyu_debug_studio
 
             //Form init
             this.Size = new Size(FormShrinkSize[0], FormShrinkSize[1]);
+            this.Text = xnyu_window_short_name;
 
             //Form Resize Thread
             FormResizer = new Thread(() => {
