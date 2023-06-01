@@ -36,5 +36,13 @@ Game
 
 Boss
 {
+	Position-X(float);
+	Position-Y(float);
+	Position-Z(float);
+	Direction(float);
+	SpeedFactor-X(float);
+	SpeedFactor-Y(float);
+	SpeedFactor-Z(float);
 	HP(int32);
+	AnimationIndex(int32);
 }

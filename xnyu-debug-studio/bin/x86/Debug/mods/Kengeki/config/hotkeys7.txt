@@ -1,4 +1,4 @@
-Slot 7asdasdsdssdsdsdsadasdsd
+Slot 7
 NUM_1=;
 NUM_2=;
 NUM_3=;
@@ -12,14 +12,14 @@ NUM_/=;
 NUM_*=;
 NUM_-=;
 NUM_+=;
-F1=;
-F2=DebugMenu.ChangeHotkeySlot(1);
-F3=;
-F4=;
-F5=;
-F6=;
-F7=;
-F8=;
+F1=DebugMenu.SetHotkeySlot(1);
+F2=DebugMenu.SetHotkeySlot(2);
+F3=DebugMenu.SetHotkeySlot(3);
+F4=DebugMenu.SetHotkeySlot(4);
+F5=DebugMenu.SetHotkeySlot(5);
+F6=DebugMenu.SetHotkeySlot(6);
+F7=DebugMenu.SetHotkeySlot(7);
+F8=DebugMenu.SetHotkeySlot(8);
 F9=;
 F10=;
 F11=;

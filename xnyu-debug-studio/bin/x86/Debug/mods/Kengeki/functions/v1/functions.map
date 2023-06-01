@@ -52,6 +52,25 @@ Camera
 	LockZoom(bool);
 }
 
+Boss
+{
+	SetPosition(float,float,float,rapid);
+	ChangePosition(float,float,float,rapid);
+	ChangePositionX(float,rapid);
+	ChangePositionY(float,rapid);
+	ChangePositionZ(float,rapid);
+	LockPosition(bool);
+	LockPositionX(bool);
+	LockPositionY(bool);
+	LockPositionZ(bool);
+	SetDirection(float,rapid);
+	ChangeDirection(float,rapid);
+	LockDirection(bool);
+	SetHP(int32,rapid);
+	SetAnimationIndex(int32,rapid);
+	LockAnimationIndex(bool);
+}
+
 Objects
 {
 	SetObjectsCounter(int32);

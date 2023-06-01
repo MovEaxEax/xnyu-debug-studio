@@ -1,0 +1,252 @@
+
+//###################################
+//# Recording Script time: 08-01-22 #
+//###################################
+
+main
+{
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { joylaxisy(-120); }
+	frame { joylaxisy(-161); }
+	frame { joylaxisx(107); joylaxisy(-216); }
+	frame { joylaxisx(118); joylaxisy(-453); }
+	frame { joylaxisx(126); joylaxisy(-497); }
+	frame { joylaxisx(129); joylaxisy(-541); }
+	frame { joylaxisx(108); joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisx(-282); joylaxisy(-1000); }
+	frame { joylaxisx(-321); joylaxisy(-979); }
+	frame { joylaxisx(-545); joylaxisy(-955); }
+	frame { joylaxisx(-781); joylaxisy(-927); }
+	frame { joylaxisx(-820); joylaxisy(-889); }
+	frame { joylaxisx(-870); joylaxisy(-816); }
+	frame { joylaxisx(-1000); joylaxisy(-560); }
+	frame { joylaxisx(-1000); }
+	frame { joylaxisx(-1000); }
+	frame { joylaxisx(-1000); }
+	frame { joylaxisx(-988); joylaxisy(320); }
+	frame { joylaxisx(-720); joylaxisy(608); }
+	frame { joylaxisx(-402); joylaxisy(664); }
+	frame { joylaxisx(-124); joylaxisy(919); }
+	frame { joylaxisy(1000); }
+	frame { joylaxisx(158); joylaxisy(1000); }
+	frame { joylaxisx(409); joylaxisy(1000); }
+	frame { joylaxisx(466); joylaxisy(986); }
+	frame { joylaxisx(734); joylaxisy(930); }
+	frame { joylaxisx(966); joylaxisy(858); }
+	frame { joylaxisx(1000); joylaxisy(540); }
+	frame { joylaxisx(1000); joylaxisy(462); }
+	frame { joylaxisx(1000); joylaxisy(134); }
+	frame { joylaxisx(1000); }
+	frame { joylaxisx(981); joylaxisy(-340); }
+	frame { joylaxisx(677); joylaxisy(-383); }
+	frame { joylaxisx(617); joylaxisy(-983); }
+	frame { joylaxisx(360); joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisx(-264); joylaxisy(-995); }
+	frame { joylaxisx(-543); joylaxisy(-972); }
+	frame { joya(); joylaxisx(-785); joylaxisy(-937); }
+	frame { joya(); joylaxisx(-841); joylaxisy(-878); }
+	frame { joya(); joylaxisx(-1000); joylaxisy(-617); }
+	frame { joya(); joylaxisx(-1000); joylaxisy(-147); }
+	frame { joya(); joylaxisx(-995); joylaxisy(213); }
+	frame { joya(); joylaxisx(-944); joylaxisy(466); }
+	frame { joya(); joylaxisx(-623); joylaxisy(701); }
+	frame { joya(); joylaxisx(-280); joylaxisy(979); }
+	frame { joya(); joylaxisy(1000); }
+	frame { joya(); joylaxisx(234); joylaxisy(1000); }
+	frame { joylaxisx(501); joylaxisy(1000); }
+	frame { joylaxisx(756); joylaxisy(959); }
+	frame { joylaxisx(808); joylaxisy(887); }
+	frame { joylaxisx(1000); joylaxisy(611); }
+	frame { joylaxisx(1000); joylaxisy(301); }
+	frame { joylaxisx(1000); joylaxisy(280); }
+	frame { joylaxisx(1000); joylaxisy(224); }
+	frame { joylaxisx(1000); }
+	frame { joylaxisx(989); joylaxisy(-265); }
+	frame { joylaxisx(941); joylaxisy(-498); }
+	frame { joylaxisx(715); joylaxisy(-548); }
+	frame { joylaxisx(469); joylaxisy(-875); }
+	frame { joylaxisx(416); joylaxisy(-1000); }
+	frame { joylaxisx(184); joylaxisy(-1000); }
+	frame { joylaxisx(144); joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-1000); }
+	frame { joylaxisy(-775); }
+	frame { joylaxisy(-498); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+}
+

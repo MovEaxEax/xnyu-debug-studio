@@ -1,4 +1,15 @@
-Global
+Player
 {
-	LevelSecret(string);
+	Score(int32);
+	ScoreLap(int32);
+	MissionID(int32);
+	MaxHits(int32);
+	Relicts(int32);
+	DamageDealt(int32);
+	DamageReceived(int32);
+	Deaths(int32);
+	EnemiesKilled(int32);
+	Falls(int32);
+	BrokenUrns(int32);
+	Level(int32);
 }

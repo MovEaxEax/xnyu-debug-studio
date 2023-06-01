@@ -41,8 +41,9 @@ namespace xnyu_debug_studio
         public static UIntPtr ejectDebuggerPointer = UIntPtr.Zero;
         public static UIntPtr checkIfRecordScriptIsDoneTASPointer = UIntPtr.Zero;
         public static UIntPtr checkIfPlayScriptIsDoneTASPointer = UIntPtr.Zero;
+        public static UIntPtr toggleTASIgnoreMousePointer = UIntPtr.Zero;
 
-        
+
 
         public static Process proc = null;
         public static string debugDLL = null;
@@ -110,7 +111,8 @@ namespace xnyu_debug_studio
             ejectDebuggerPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "ejectDebugger").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfRecordScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfRecordScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
             checkIfPlayScriptIsDoneTASPointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "checkIfPlayScriptIsDoneTAS").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
-
+            toggleTASIgnoreMousePointer = new UIntPtr((ulong)((GetProcAddress(shadowDLL, "toggleTASIgnoreMouse").ToUInt64() - shadowDLL.ToUInt64()) + targetDLLHandle.ToUInt64()));
+            
             FreeLibrary(shadowDLL);
             Thread.Sleep(100);
         }
@@ -173,6 +175,11 @@ namespace xnyu_debug_studio
         public int toggleOverclock(string parameter)
         {
             return InvokeFunction(toggleOverclockPointer, parameter, proc.ProcessName);
+        }
+
+        public int toggleTASIgnoreMouse(string parameter)
+        {
+            return InvokeFunction(toggleTASIgnoreMousePointer, parameter, proc.ProcessName);
         }
 
         public int ejectDebugger(string parameter)

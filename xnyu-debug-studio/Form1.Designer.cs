@@ -116,6 +116,7 @@ namespace xnyu_debug_studio
             this.JOYSELECT = new System.Windows.Forms.PictureBox();
             this.JOYSTART = new System.Windows.Forms.PictureBox();
             this.checkbox_overclock = new System.Windows.Forms.CheckBox();
+            this.checkbox_togglemouse = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Play_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Record_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Title_Picture)).BeginInit();
@@ -1271,6 +1272,19 @@ namespace xnyu_debug_studio
             this.checkbox_overclock.UseVisualStyleBackColor = true;
             this.checkbox_overclock.Click += new System.EventHandler(this.Overclock_Checkbox_Checked);
             // 
+            // checkbox_togglemouse
+            // 
+            this.checkbox_togglemouse.AutoSize = true;
+            this.checkbox_togglemouse.Checked = true;
+            this.checkbox_togglemouse.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkbox_togglemouse.Location = new System.Drawing.Point(26, 511);
+            this.checkbox_togglemouse.Name = "checkbox_togglemouse";
+            this.checkbox_togglemouse.Size = new System.Drawing.Size(65, 17);
+            this.checkbox_togglemouse.TabIndex = 109;
+            this.checkbox_togglemouse.Text = "Enabled";
+            this.checkbox_togglemouse.UseVisualStyleBackColor = true;
+            this.checkbox_togglemouse.Click += new System.EventHandler(this.checkbox_togglemouse_Click);
+            // 
             // Workspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1278,6 +1292,7 @@ namespace xnyu_debug_studio
             this.BackgroundImage = global::xnyu_debug_studio.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(480, 557);
+            this.Controls.Add(this.checkbox_togglemouse);
             this.Controls.Add(this.checkbox_overclock);
             this.Controls.Add(this.JOYSTART);
             this.Controls.Add(this.JOYSELECT);
@@ -1538,6 +1553,7 @@ namespace xnyu_debug_studio
         private System.Windows.Forms.PictureBox JOYSELECT;
         private System.Windows.Forms.PictureBox JOYSTART;
         private System.Windows.Forms.CheckBox checkbox_overclock;
+        private System.Windows.Forms.CheckBox checkbox_togglemouse;
     }
 }
 

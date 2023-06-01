@@ -1,0 +1,230 @@
+
+//###################################
+//# Recording Script time: 12-55-13 #
+//###################################
+
+main
+{
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-3); mousey(1); }
+	frame { mousex(-16); mousey(10); }
+	frame { mousex(-25); mousey(16); }
+	frame { mousex(-33); mousey(16); }
+	frame { mousex(-52); mousey(25); }
+	frame { mousex(-55); mousey(23); }
+	frame { mousex(-49); mousey(20); }
+	frame { mousex(-56); mousey(24); }
+	frame { mousex(-41); mousey(15); }
+	frame { mousex(-44); mousey(11); }
+	frame { mousex(-24); mousey(6); }
+	frame { mousex(-23); mousey(4); }
+	frame { mousex(-25); mousey(3); }
+	frame { mousex(-18); mousey(2); }
+	frame { mousex(-21); mousey(2); }
+	frame { mousex(-13); }
+	frame { mousex(-8); mousey(-1); }
+	frame { mousex(-7); mousey(-2); }
+	frame { mousex(-4); mousey(-1); }
+	frame { mousey(-1); }
+	frame { mousex(1); mousey(-1); }
+	frame { mousex(2); mousey(-2); }
+	frame { mousex(3); mousey(-2); }
+	frame { mousex(21); mousey(-20); }
+	frame { mousex(16); mousey(-16); }
+	frame { mousex(11); mousey(-10); }
+	frame { mousex(9); mousey(-6); }
+	frame { mousex(5); mousey(-3); }
+	frame { mousex(5); mousey(-1); }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); mousex(-2); mousey(-1); }
+	frame { lmb(); mousey(-1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { joydown(); }
+	frame { }
+	frame { }
+	frame { joyup(); }
+	frame { joyup(); }
+	frame { joyup(); }
+	frame { joyup(); }
+	frame { joyup(); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(7); mousey(-5); }
+	frame { }
+	frame { mousex(102); mousey(-52); }
+	frame { mousex(153); mousey(-51); }
+	frame { mousex(135); mousey(-18); }
+	frame { mousex(91); mousey(6); }
+	frame { mousex(64); mousey(24); }
+	frame { mousex(23); mousey(22); }
+	frame { mousex(2); mousey(19); }
+	frame { mousex(-3); mousey(4); }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-4); mousey(7); }
+	frame { mousex(-2); mousey(9); }
+	frame { mousex(2); }
+	frame { mousex(2); mousey(-1); }
+	frame { mousex(3); mousey(-2); }
+	frame { mousex(3); mousey(-4); }
+	frame { mousey(-5); }
+	frame { mousex(-5); mousey(-5); }
+	frame { mousex(-5); mousey(-3); }
+	frame { mousex(-3); }
+	frame { mousex(-3); mousey(-1); }
+	frame { mousex(-3); }
+	frame { mousex(-3); mousey(1); }
+	frame { }
+	frame { mousex(-20); mousey(6); }
+	frame { mousex(-19); mousey(7); }
+	frame { mousex(-19); mousey(10); }
+	frame { mousex(-10); mousey(8); }
+	frame { mousex(-6); mousey(5); }
+	frame { mousex(-1); mousey(1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(4); mousey(-4); }
+	frame { mousex(3); mousey(-3); }
+	frame { mousex(3); mousey(-1); }
+	frame { mousex(2); mousey(-2); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(2); mousey(-2); }
+	frame { mousex(1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+}
+

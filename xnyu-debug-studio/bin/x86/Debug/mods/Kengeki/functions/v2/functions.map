@@ -1,4 +1,92 @@
+Player
+{
+	SetPosition(float,float,float,rapid);
+	ChangePosition(float,float,float,rapid);
+	ChangePositionX(float,rapid);
+	ChangePositionY(float,rapid);
+	ChangePositionZ(float,rapid);
+	LockPosition(bool);
+	LockPositionX(bool);
+	LockPositionY(bool);
+	LockPositionZ(bool);
+	SetDirection(float,rapid);
+	ChangeDirection(float,rapid);
+	LockDirection(bool);
+	SetHP(int32,rapid);
+	SetEnergy(int32,rapid);
+	SetSpellcardBar(int32,rapid);
+	SetSpeedFactor(int32,int32,int32,rapid);
+	ChangeSpeedFactorX(float,rapid);
+	ChangeSpeedFactorY(float,rapid);
+	ChangeSpeedFactorZ(float,rapid);
+	LockSpeedFactor(bool);
+	LockSpeedFactorX(bool);
+	LockSpeedFactorY(bool);
+	LockSpeedFactorZ(bool);
+	SetAnimationIndex(int32,rapid);
+	LockAnimationIndex(bool);
+}
+
+Camera
+{
+	SetPosition(float,float,float,rapid);
+	ChangePosition(float,float,float,rapid);
+	ChangePositionX(float,rapid);
+	ChangePositionY(float,rapid);
+	ChangePositionZ(float,rapid);
+	LockPosition(bool);
+	LockPositionX(bool);
+	LockPositionY(bool);
+	LockPositionZ(bool);
+	SetAngle(float,float,float,rapid);
+	ChangeAngle(float,float,float,rapid);
+	ChangeAngleX(float,rapid);
+	ChangeAngleY(float,rapid);
+	ChangeAngleZ(float,rapid);
+	LockAngle(bool);
+	LockAngleX(bool);
+	LockAngleY(bool);
+	LockAngleZ(bool);
+	SetZoom(float,rapid);
+	ChangeZoom(float,rapid);
+	LockZoom(bool);
+}
+
+Boss
+{
+	SetPosition(float,float,float,rapid);
+	ChangePosition(float,float,float,rapid);
+	ChangePositionX(float,rapid);
+	ChangePositionY(float,rapid);
+	ChangePositionZ(float,rapid);
+	LockPosition(bool);
+	LockPositionX(bool);
+	LockPositionY(bool);
+	LockPositionZ(bool);
+	SetDirection(float,rapid);
+	ChangeDirection(float,rapid);
+	LockDirection(bool);
+	SetHP(int32,rapid);
+	SetAnimationIndex(int32,rapid);
+	LockAnimationIndex(bool);
+}
+
+Objects
+{
+	SetObjectsCounter(int32);
+}
+
+Game
+{
+	SetGamePaused(bool);
+}
+
+Squirrel
+{
+	SharedSetPosition(float,float,float,rapid);
+}
+
 Hacks
 {
-	Godmode();
+	Godmode(bool);
 }

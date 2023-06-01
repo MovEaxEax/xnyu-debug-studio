@@ -3,6 +3,7 @@ Player
 	Position-X(float);
 	Position-Y(float);
 	Position-Z(float);
+	Direction(float);
 	SpeedFactor-X(float);
 	SpeedFactor-Y(float);
 	SpeedFactor-Z(float);
@@ -12,7 +13,36 @@ Player
 	AnimationIndex(int32);
 }
 
+Camera
+{
+	Position-X(float);
+	Position-Y(float);
+	Position-Z(float);
+	Angle-X(float);
+	Angle-Y(float);
+	Angle-Z(float);
+	Zoom(float);
+}
+
+Objects
+{
+	ObjectsCounter(int32);
+}
+
+Game
+{
+	IsGamePaused(bool);
+}
+
 Boss
 {
+	Position-X(float);
+	Position-Y(float);
+	Position-Z(float);
+	Direction(float);
+	SpeedFactor-X(float);
+	SpeedFactor-Y(float);
+	SpeedFactor-Z(float);
 	HP(int32);
+	AnimationIndex(int32);
 }

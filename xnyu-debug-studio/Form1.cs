@@ -248,6 +248,7 @@ namespace xnyu_debug_studio
                             Process.Start(Directory.GetCurrentDirectory() + @"\xnyu-studio-updater.exe");
                             Thread.Sleep(1000);
                             Application.Exit();
+                            Environment.Exit(0);
                         }
                     }
                 }
@@ -1031,6 +1032,12 @@ namespace xnyu_debug_studio
         {
             string toggleOverclockParams = checkbox_devmode.Checked ? "1;" : "0;";
             sharedFunctions.toggleOverclock(toggleOverclockParams);
+        }
+
+        private void checkbox_togglemouse_Click(object sender, EventArgs e)
+        {
+            string toggleTASIgnoreMouseModeParams = checkbox_devmode.Checked ? "1;" : "0;";
+            sharedFunctions.toggleTASIgnoreMouse(toggleTASIgnoreMouseModeParams);
         }
 
         public void UpdateFrameTextbox()

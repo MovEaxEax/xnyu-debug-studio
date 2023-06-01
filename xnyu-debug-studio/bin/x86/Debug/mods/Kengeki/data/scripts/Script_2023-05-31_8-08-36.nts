@@ -1,0 +1,255 @@
+
+//###################################
+//# Recording Script time: 08-08-36 #
+//###################################
+
+main
+{
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-2); mousey(3); }
+	frame { mousex(-7); mousey(5); }
+	frame { mousex(-9); mousey(6); }
+	frame { mousex(-11); mousey(7); }
+	frame { mousex(-16); mousey(10); }
+	frame { mousex(-17); mousey(11); }
+	frame { mousex(-21); mousey(11); }
+	frame { mousex(-20); mousey(11); }
+	frame { mousex(-22); mousey(10); }
+	frame { mousex(-21); mousey(8); }
+	frame { mousex(-17); mousey(8); }
+	frame { mousex(-22); mousey(8); }
+	frame { mousex(-18); mousey(7); }
+	frame { mousex(-14); mousey(5); }
+	frame { mousex(-12); mousey(4); }
+	frame { mousex(-12); mousey(5); }
+	frame { mousex(-12); mousey(3); }
+	frame { mousex(-7); mousey(2); }
+	frame { mousex(-11); mousey(4); }
+	frame { mousex(-9); mousey(3); }
+	frame { mousex(-4); mousey(1); }
+	frame { mousex(-4); mousey(1); }
+	frame { mousex(-4); mousey(1); }
+	frame { }
+	frame { mousex(-29); mousey(8); }
+	frame { mousex(-30); mousey(10); }
+	frame { mousex(-28); mousey(9); }
+	frame { mousex(-24); mousey(5); }
+	frame { mousex(-21); mousey(4); }
+	frame { mousex(-23); mousey(5); }
+	frame { mousex(-16); mousey(4); }
+	frame { mousex(-17); mousey(4); }
+	frame { mousex(-11); mousey(3); }
+	frame { mousex(-4); mousey(2); }
+	frame { mousex(-1); mousey(1); }
+	frame { }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(1); }
+	frame { mousex(7); mousey(-3); }
+	frame { mousex(11); mousey(-5); }
+	frame { mousex(13); mousey(-7); }
+	frame { mousex(17); mousey(-9); }
+	frame { mousex(22); mousey(-9); }
+	frame { mousex(24); mousey(-10); }
+	frame { mousex(16); mousey(-7); }
+	frame { mousex(25); mousey(-10); }
+	frame { mousex(14); mousey(-5); }
+	frame { mousex(7); mousey(-2); }
+	frame { mousex(5); mousey(-1); }
+	frame { mousex(6); mousey(-2); }
+	frame { }
+	frame { mousex(30); mousey(-11); }
+	frame { mousex(29); mousey(-10); }
+	frame { mousex(20); mousey(-8); }
+	frame { mousex(13); mousey(-6); }
+	frame { mousex(7); mousey(-3); }
+	frame { mousex(6); mousey(-3); }
+	frame { mousex(5); mousey(-2); }
+	frame { mousex(3); mousey(-2); }
+	frame { mousex(5); mousey(-3); }
+	frame { mousex(9); mousey(-3); }
+	frame { mousex(8); mousey(-3); }
+	frame { mousex(9); mousey(-2); }
+	frame { mousex(9); mousey(-2); }
+	frame { mousex(9); mousey(-2); }
+	frame { mousex(6); mousey(-1); }
+	frame { mousex(6); mousey(-1); }
+	frame { mousex(4); }
+	frame { mousex(4); }
+	frame { mousex(4); }
+	frame { mousex(4); }
+	frame { mousex(4); }
+	frame { mousex(2); mousey(1); }
+	frame { }
+	frame { mousex(17); mousey(4); }
+	frame { mousex(12); mousey(3); }
+	frame { mousex(6); mousey(3); }
+	frame { mousex(1); }
+	frame { mousex(1); }
+	frame { }
+	frame { }
+	frame { mousey(2); }
+	frame { mousex(2); mousey(7); }
+	frame { mousex(2); mousey(9); }
+	frame { mousex(1); mousey(9); }
+	frame { mousey(9); }
+	frame { mousex(-1); mousey(12); }
+	frame { mousex(-2); mousey(10); }
+	frame { mousex(-2); mousey(9); }
+	frame { mousex(-5); mousey(11); }
+	frame { mousex(-6); mousey(10); }
+	frame { mousex(-7); mousey(10); }
+	frame { mousex(-6); mousey(5); }
+	frame { mousex(-6); mousey(5); }
+	frame { mousex(-6); mousey(4); }
+	frame { mousex(-3); mousey(2); }
+	frame { mousex(-7); mousey(5); }
+	frame { mousex(-5); mousey(1); }
+	frame { }
+	frame { }
+	frame { mousex(-45); mousey(5); }
+	frame { mousex(-49); mousey(1); }
+	frame { mousex(-50); }
+	frame { mousex(-38); mousey(-4); }
+	frame { mousex(-28); mousey(-4); }
+	frame { mousex(-15); mousey(-4); }
+	frame { mousex(-5); mousey(-2); }
+	frame { }
+	frame { mousex(4); mousey(-4); }
+	frame { mousex(9); mousey(-8); }
+	frame { mousex(13); mousey(-8); }
+	frame { mousex(17); mousey(-10); }
+	frame { mousex(22); mousey(-12); }
+	frame { mousex(21); mousey(-9); }
+	frame { mousex(33); mousey(-9); }
+	frame { mousex(23); mousey(-5); }
+	frame { mousex(14); mousey(-2); }
+	frame { mousex(12); mousey(-1); }
+	frame { mousex(9); }
+	frame { mousex(9); }
+	frame { mousex(3); }
+	frame { mousex(2); }
+	frame { mousex(1); mousey(-1); }
+	frame { }
+	frame { mousex(8); mousey(-4); }
+	frame { mousex(8); mousey(-6); }
+	frame { mousex(6); mousey(-7); }
+	frame { mousex(3); mousey(-9); }
+	frame { mousey(-9); }
+	frame { mousex(-4); mousey(-7); }
+	frame { mousex(-5); mousey(-6); }
+	frame { mousex(-5); mousey(-4); }
+	frame { mousex(-3); mousey(-3); }
+	frame { mousex(-3); mousey(-3); }
+	frame { mousex(-5); mousey(-4); }
+	frame { mousex(-12); mousey(-8); }
+	frame { mousex(-16); mousey(-8); }
+	frame { mousex(-15); mousey(-6); }
+	frame { mousex(-12); mousey(-3); }
+	frame { mousex(-16); mousey(-3); }
+	frame { mousex(-9); mousey(-1); }
+	frame { mousex(-5); }
+	frame { mousex(-3); mousey(1); }
+	frame { mousex(-2); mousey(1); }
+	frame { mousex(-2); }
+	frame { mousex(-1); mousey(1); }
+	frame { mousex(-1); mousey(1); }
+	frame { }
+	frame { }
+	frame { mousex(-9); mousey(4); }
+	frame { mousex(-7); mousey(4); }
+	frame { mousex(-4); mousey(2); }
+	frame { mousex(-1); }
+	frame { mousey(1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+}
+

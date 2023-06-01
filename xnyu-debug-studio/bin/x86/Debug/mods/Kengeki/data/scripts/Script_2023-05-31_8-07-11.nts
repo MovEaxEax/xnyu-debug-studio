@@ -1,0 +1,220 @@
+
+//###################################
+//# Recording Script time: 08-07-11 #
+//###################################
+
+main
+{
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(4); }
+	frame { mousex(5); mousey(1); }
+	frame { mousex(9); mousey(2); }
+	frame { mousex(10); mousey(1); }
+	frame { mousex(16); }
+	frame { mousex(21); mousey(-1); }
+	frame { mousex(9); mousey(-2); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { joyb(); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { joyx(); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-3); mousey(-15); }
+	frame { mousex(-1); mousey(-7); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-1); }
+	frame { }
+	frame { }
+	frame { mousex(-2); mousey(2); }
+	frame { mousex(-4); mousey(1); }
+	frame { mousex(-4); }
+	frame { mousex(-3); }
+	frame { mousex(-6); mousey(-1); }
+	frame { mousex(-2); mousey(-1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { mousex(-2); mousey(1); }
+	frame { mousex(-4); mousey(2); }
+	frame { mousex(-6); mousey(2); }
+	frame { mousex(-8); mousey(2); }
+	frame { mousex(-3); mousey(1); }
+	frame { mousex(-1); }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+	frame { lmb(); }
+}
+
+
+//###################################
+//# Recording Script time: 08-07-26 #
+//###################################
+
+main
+{
+frame{JOYUP();}
+frame{JOYUP();}
+frame{JOYUP();}
+frame{JOYUP();}
+frame{JOYUP();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+frame{JOYUP();JOYA();}
+}
+
+
+//###################################
+//# Recording Script time: 08-07-53 #
+//###################################
+
+main
+{
+frame{JOYY();}
+frame{JOYY();}
+frame{JOYY();}
+frame{JOYY();}
+frame{JOYY();}
+frame{JOYY();}
+}
+
