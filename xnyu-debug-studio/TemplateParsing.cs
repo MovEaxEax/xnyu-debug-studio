@@ -40,6 +40,9 @@ namespace xnyu_debug_studio
             public string config_debugmod_directory;
             public string config_debugfunction_directory;
             public string config_debugaddress_directory;
+            public string config_editormode_settings_directory;
+            public string config_editormode_actions_directory;
+            public string config_supervision_directory;
             public string config_inputmapping_directory;
             public string config_savefile_directory;
             public string config_debugconfig_directory;
@@ -232,9 +235,9 @@ namespace xnyu_debug_studio
             if (target_module.config_keyboarddriver_get == "") return "No config_keyboarddriver_get was set.";
             if (target_module.config_keyboarddriver_get != "rawinput" && target_module.config_keyboarddriver_get != "directinput8" &&
                 target_module.config_keyboarddriver_get != "getmessagea" && target_module.config_keyboarddriver_get != "getmessagew") return "Wrong paramter for config_keyboarddriver_get.";
-            if (target_module.config_joystickdriver_get != "xinput1_4" && target_module.config_joystickdriver_get != "directinput8" &&
+            if (target_module.config_joystickdriver_get != "xinput1_4" && target_module.config_joystickdriver_get != "xinput1_3" && target_module.config_joystickdriver_get != "directinput8" &&
                 target_module.config_joystickdriver_get != "") return "Wrong paramter for config_keyboarddriver_get.";
-            if (target_module.config_joystickdriver_set != "xinput1_4" && target_module.config_joystickdriver_set != "directinput8" &&
+            if (target_module.config_joystickdriver_set != "xinput1_4" && target_module.config_joystickdriver_set != "xinput1_3" && target_module.config_joystickdriver_set != "directinput8" &&
                 target_module.config_joystickdriver_set != "") return "Wrong paramter for config_keyboarddriver_get.";
             if (target_module.config_graphicdriver != "directx9" && target_module.config_graphicdriver != "directx10" &&
                 target_module.config_graphicdriver != "directx11" && target_module.config_graphicdriver != "directx12" &&
@@ -270,6 +273,18 @@ namespace xnyu_debug_studio
             target_module.config_debugaddress_directory = ParseRelativePaths(target_module.config_debugaddress_directory);
             if (target_module.config_debugaddress_directory == "") return "No config_debugaddress_directory was set.";
             if (!target_module.config_debugaddress_directory.Contains(root_dir)) return "config_debugaddress_directory doesn't act inside the root directory.";
+
+            target_module.config_editormode_settings_directory = ParseRelativePaths(target_module.config_editormode_settings_directory);
+            if (target_module.config_editormode_settings_directory == "") return "No config_editormode_settings_directory was set.";
+            if (!target_module.config_editormode_settings_directory.Contains(root_dir)) return "config_editormode_settings_directory doesn't act inside the root directory.";
+
+            target_module.config_editormode_actions_directory = ParseRelativePaths(target_module.config_editormode_actions_directory);
+            if (target_module.config_editormode_actions_directory == "") return "No config_editormode_actions_directory was set.";
+            if (!target_module.config_editormode_actions_directory.Contains(root_dir)) return "config_editormode_actions_directory doesn't act inside the root directory.";
+
+            target_module.config_supervision_directory = ParseRelativePaths(target_module.config_supervision_directory);
+            if (target_module.config_supervision_directory == "") return "No config_supervision_directory was set.";
+            if (!target_module.config_supervision_directory.Contains(root_dir)) return "config_supervision_directory doesn't act inside the root directory.";
 
             target_module.config_inputmapping_directory = ParseRelativePaths(target_module.config_inputmapping_directory);
             if (target_module.config_inputmapping_directory == "") return "No config_inputmapping_directory was set.";
@@ -362,6 +377,9 @@ namespace xnyu_debug_studio
                 module.config_debugmod_directory = "";
                 module.config_debugfunction_directory = "";
                 module.config_debugaddress_directory = "";
+                module.config_editormode_settings_directory = "";
+                module.config_editormode_actions_directory = "";
+                module.config_supervision_directory = "";
                 module.config_inputmapping_directory = "";
                 module.config_savefile_directory = "";
                 module.config_debugconfig_directory = "";
@@ -1172,6 +1190,96 @@ namespace xnyu_debug_studio
                                         equalIndex++;
                                     }
                                     module.config_debugaddress_directory = parameter;
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_editormode_settings_directory
+                            if (template_text.Length > "config_editormode_settings_directory".Length)
+                            {
+                                if (template_text.Substring(0, "config_editormode_settings_directory".Length) == "config_editormode_settings_directory")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_editormode_settings_directory = parameter;
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_editormode_actions_directory
+                            if (template_text.Length > "config_editormode_actions_directory".Length)
+                            {
+                                if (template_text.Substring(0, "config_editormode_actions_directory".Length) == "config_editormode_actions_directory")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_editormode_actions_directory = parameter;
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_supervision_directory
+                            if (template_text.Length > "config_supervision_directory".Length)
+                            {
+                                if (template_text.Substring(0, "config_supervision_directory".Length) == "config_supervision_directory")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_supervision_directory = parameter;
                                     template_text = template_text.Remove(0, equalIndex + 1);
                                     foundConfig = true;
                                 }

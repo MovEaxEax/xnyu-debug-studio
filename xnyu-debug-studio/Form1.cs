@@ -46,7 +46,7 @@ namespace xnyu_debug_studio
         public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
 
         // Copies files etc, when opened in visual studio
-        public static bool visualStudioMode = false;
+        public static bool visualStudioMode = true;
 
         // Template
         public static Template CurrentTemplate = null;
@@ -227,8 +227,8 @@ namespace xnyu_debug_studio
                 string dstMM = cD + @"\xnyu-mod-manager.exe";
                 if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
 
-                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Kengeki\Debug\kengeki-mod.dll";
-                string dstMod = cD + @"\mods\Kengeki\mod\kengeki-mod.dll";
+                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Scarlet Curiosity\Debug\scarlet-mod.dll";
+                string dstMod = cD + @"\mods\ScarletCuriosity\mod\scarlet-mod.dll";
                 if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
             }
             else
@@ -838,6 +838,9 @@ namespace xnyu_debug_studio
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_debugmod_directory + "\\;";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_debugfunction_directory + "\\;";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_debugaddress_directory + "\\;";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_editormode_settings_directory + "\\;";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_editormode_actions_directory + "\\;";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_supervision_directory + "\\;";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_inputmapping_directory + "\\;";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_savefile_directory + "\\;";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_debugconfig_directory + "\\;";
