@@ -39,14 +39,14 @@ namespace xnyu_debug_studio
         public static extern short GetAsyncKeyState(Keys ArrowKeys);
 
         // Window names
-        public static string applicationVersion = "1.0.0";
-        public static string[] applicationVersionNumbers = { "1", "0", "0" };
+        public static string applicationVersion = "0.9.1";
+        public static string[] applicationVersionNumbers = { "0", "9", "1" };
 
         public static string xnyu_window_short_name = "NTS v" + applicationVersion;
         public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
 
         // Copies files etc, when opened in visual studio
-        public static bool visualStudioMode = true;
+        public static bool visualStudioMode = false;
 
         // Template
         public static Template CurrentTemplate = null;
@@ -196,6 +196,54 @@ namespace xnyu_debug_studio
             // Form init
             InitializeComponent();
 
+            int timeout = 0;
+            while (timeout < 100)
+            {
+                Process[] targetProcs = Process.GetProcessesByName("xnyu-studio-updater");
+                if (targetProcs.Length > 0)
+                {
+                    try
+                    {
+                        targetProcs[0].Close();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+                timeout++;
+                Thread.Sleep(100);
+            }
+
+            if (timeout >= 100)
+            {
+                MessageBox.Show("Updater still running!\nClose it first and restart this applciation.");
+                Environment.Exit(0);
+            }
+
+            string upd64new = Directory.GetCurrentDirectory() + @"\updater\x64\xnyu-studio-updater_new.exe";
+            string upd64old = Directory.GetCurrentDirectory() + @"\updater\x64\xnyu-studio-updater.exe";
+            string upd86new = Directory.GetCurrentDirectory() + @"\updater\x86\xnyu-studio-updater_new.exe";
+            string upd86old = Directory.GetCurrentDirectory() + @"\updater\x86\xnyu-studio-updater.exe";
+
+            if (File.Exists(upd64new))
+            {
+                if (File.Exists(upd64old)) File.Delete(upd64old);
+                Thread.Sleep(100);
+                File.Move(upd64new, upd64old);
+            }
+
+            if (File.Exists(upd86new))
+            {
+                if (File.Exists(upd86old)) File.Delete(upd86old);
+                Thread.Sleep(100);
+                File.Move(upd86new, upd86old);
+            }
+
             // Center window to screen
             CenterToScreen();
 
@@ -227,9 +275,9 @@ namespace xnyu_debug_studio
                 string dstMM = cD + @"\xnyu-mod-manager.exe";
                 if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
 
-                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Scarlet Curiosity\Debug\scarlet-mod.dll";
-                string dstMod = cD + @"\mods\ScarletCuriosity\mod\scarlet-mod.dll";
-                if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
+                //string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Scarlet Curiosity\Debug\scarlet-mod.dll";
+                //string dstMod = cD + @"\mods\ScarletCuriosity\mod\scarlet-mod.dll";
+                //if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
             }
             else
             {
@@ -257,8 +305,8 @@ namespace xnyu_debug_studio
                         if (result == DialogResult.Yes)
                         {
                             // Go for the update
-                            Process.Start(Directory.GetCurrentDirectory() + @"\xnyu-studio-updater.exe");
-                            Thread.Sleep(1000);
+                            Process.Start(Directory.GetCurrentDirectory() + @"\updater\" + (IntPtr.Size == 8 ? "x64" : "x86") + @"\xnyu-studio-updater.exe");
+                            Thread.Sleep(2000);
                             Application.Exit();
                             Environment.Exit(0);
                         }
