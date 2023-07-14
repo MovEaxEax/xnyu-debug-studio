@@ -17,6 +17,7 @@ using System.Net.NetworkInformation;
 using gh;
 using SharpMonoInjector;
 using static gh.ghapi;
+using System.Net;
 
 namespace xnyu_debug_studio
 {
@@ -183,7 +184,13 @@ namespace xnyu_debug_studio
         {
             try
             {
-                return GetOnlineDataAsync(url).GetAwaiter().GetResult();
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0");
+                    return client.GetStringAsync(url).GetAwaiter().GetResult();
+                }
             }
             catch (TaskCanceledException)
             {
