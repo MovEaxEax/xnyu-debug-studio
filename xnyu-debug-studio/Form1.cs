@@ -196,6 +196,8 @@ namespace xnyu_debug_studio
             // Form init
             InitializeComponent();
 
+            Thread.Sleep(1000);
+
             int timeout = 0;
             while (timeout < 100)
             {
@@ -232,6 +234,7 @@ namespace xnyu_debug_studio
 
             if (File.Exists(upd64new))
             {
+                Thread.Sleep(4000);
                 if (File.Exists(upd64old)) File.Delete(upd64old);
                 Thread.Sleep(100);
                 File.Move(upd64new, upd64old);
@@ -239,6 +242,7 @@ namespace xnyu_debug_studio
 
             if (File.Exists(upd86new))
             {
+                Thread.Sleep(4000);
                 if (File.Exists(upd86old)) File.Delete(upd86old);
                 Thread.Sleep(100);
                 File.Move(upd86new, upd86old);
@@ -306,7 +310,7 @@ namespace xnyu_debug_studio
                         {
                             // Go for the update
                             Process.Start(Directory.GetCurrentDirectory() + @"\updater\" + (IntPtr.Size == 8 ? "x64" : "x86") + @"\xnyu-studio-updater.exe");
-                            Thread.Sleep(2000);
+                            Thread.Sleep(1000);
                             Application.Exit();
                             Environment.Exit(0);
                         }

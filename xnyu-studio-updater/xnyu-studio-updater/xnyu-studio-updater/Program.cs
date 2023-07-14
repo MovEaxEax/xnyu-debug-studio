@@ -126,6 +126,8 @@ namespace xnyu_studio_updater
                 Environment.Exit(0);
             }
 
+            Thread.Sleep(5000);
+
             string currentVersion = "http://raw.githubusercontent.com/MovEaxEax/xnyu-debug-studio/main/version.txt";
             string version = GetHtmlFromUrlRaw(currentVersion);
             string release = "http://raw.githubusercontent.com/MovEaxEax/xnyu-debug-studio/main/builds/xnyu-debug-studio_v" + version + ".zip";
@@ -145,18 +147,19 @@ namespace xnyu_studio_updater
 
             File.Delete(zipTarget);
 
-            string oldUpdater = tmpDir + @"\updater" + bitFlag + @"\xnyu-studio-updater.exe";
-            string newUpdater = tmpDir + @"\updater" + bitFlag + @"\xnyu-studio-updater_new.exe";
+            string oldUpdater = tmpDir + @"\updater\" + bitFlag + @"\xnyu-studio-updater.exe";
+            string newUpdater = tmpDir + @"\updater\" + bitFlag + @"\xnyu-studio-updater_new.exe";
             File.Move(oldUpdater, newUpdater);
 
-            string targetDirectory = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            //string targetDirectory = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string targetDirectory = Directory.GetCurrentDirectory();
             InstallNewVersion(tmpDir, targetDirectory);
 
             // Delete tmp files and directory again
             Directory.Delete(tmpDir, true);
 
-            Process.Start(Directory.GetCurrentDirectory() + @"\xnyu-debug-studio-" + bitFlag + ".exe");
-            Thread.Sleep(2000);
+            Process.Start(targetDirectory + @"\xnyu-debug-studio-" + bitFlag + ".exe");
+            Thread.Sleep(1000);
             Environment.Exit(0);
         }
     }
