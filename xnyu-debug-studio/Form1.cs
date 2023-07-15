@@ -18,6 +18,7 @@ using gh;
 using SharpMonoInjector;
 using static gh.ghapi;
 using System.Net;
+using System.Reflection;
 
 namespace xnyu_debug_studio
 {
@@ -286,9 +287,9 @@ namespace xnyu_debug_studio
                 string dstMM = cD + @"\xnyu-mod-manager.exe";
                 if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
 
-                //string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Scarlet Curiosity\Debug\scarlet-mod.dll";
-                //string dstMod = cD + @"\mods\ScarletCuriosity\mod\scarlet-mod.dll";
-                //if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
+                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Touhou Scarlet Curiosity\Debug\scarlet-mod.dll";
+                string dstMod = cD + @"\mods\TouhouScarletCuriosity\mod\scarlet-mod.dll";
+                if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
             }
             else
             {

@@ -162,24 +162,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="config\imgs\CustomCursor.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="config\imgs\DebugFunctions.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="config\imgs\DebugValues.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="config\imgs\Overview.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="config\imgs\SavefileEditor.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="config\imgs\SavefileEditorSelect.raw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\A.png" />
     <None Include="Resources\A_Selected.png" />
     <None Include="Resources\ADOWN.png" />
@@ -326,6 +308,33 @@
     <None Include="Resources\Y_Selected.png" />
     <None Include="Resources\Z.png" />
     <None Include="Resources\Z_Selected.png" />
+    <Content Include="config\imgs\CustomCursor.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\DebugFunctions.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\DebugValues.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\EditorMode.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\InvisibleCursor.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\Overview.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\SavefileEditor.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\SavefileEditorSelect.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\imgs\Supervision.raw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="icon.ico" />
     <None Include="Resources\JOYSELECT.png" />
     <None Include="Resources\JOYSELECT_Selected.png" />
