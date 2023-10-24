@@ -2,7 +2,6 @@ D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio.exe
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio.pdb
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.csproj.AssemblyReference.cache
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.csproj.SuggestedBindingRedirects.cache
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu_debug_studio.Workspace.resources
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu_debug_studio.Properties.Resources.resources
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.csproj.GenerateResource.cache
