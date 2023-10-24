@@ -41,8 +41,8 @@ namespace xnyu_debug_studio
         public static extern short GetAsyncKeyState(Keys ArrowKeys);
 
         // Window names
-        public static string applicationVersion = "0.9.1";
-        public static string[] applicationVersionNumbers = { "0", "9", "1" };
+        public static string applicationVersion = "0.9.2";
+        public static string[] applicationVersionNumbers = { "0", "9", "2" };
 
         public static string xnyu_window_short_name = "NTS v" + applicationVersion;
         public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
