@@ -48,7 +48,7 @@ namespace xnyu_debug_studio
         public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
 
         // Copies files etc, when opened in visual studio
-        public static bool visualStudioMode = true;
+        public static bool visualStudioMode = false;
 
         // Template
         public static Template CurrentTemplate = null;
