@@ -33,6 +33,8 @@ namespace xnyu_debug_studio
             public string config_joystickdriver_get;
             public string config_graphicdriver;
             public string config_d3d9_hook;
+            public string config_overclocker_hooks;
+            public string config_winactive_hooks;
             public string config_rawinput_demand;
             public string config_script_directory;
             public string config_working_directory;
@@ -244,7 +246,6 @@ namespace xnyu_debug_studio
                 target_module.config_graphicdriver != "opengl" && target_module.config_graphicdriver != "vulcan" &&
                 target_module.config_graphicdriver != "") return "Wrong paramter for config_graphicdriver.";
             if (target_module.config_rawinput_demand != "true" && target_module.config_rawinput_demand != "false") return "Wrong paramter for config_rawinput_demand.";
-            if (target_module.config_d3d9_hook != "present" && target_module.config_d3d9_hook != "endscene") return "Wrong paramter for config_d3d9_hook.";
 
             
             target_module.config_script_directory = ParseRelativePaths(target_module.config_script_directory);
@@ -370,6 +371,8 @@ namespace xnyu_debug_studio
                 module.config_joystickdriver_get = "";
                 module.config_graphicdriver = "";
                 module.config_d3d9_hook = "present";
+                module.config_overclocker_hooks = "QueryPerformanceCounter";
+                module.config_winactive_hooks = "WndProc";
                 module.config_rawinput_demand = "true";
                 module.config_script_directory = "";
                 module.config_working_directory = "";
@@ -980,6 +983,66 @@ namespace xnyu_debug_studio
                                         equalIndex++;
                                     }
                                     module.config_d3d9_hook = parameter.ToLower();
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_overclocker_hooks
+                            if (template_text.Length > "config_overclocker_hooks".Length)
+                            {
+                                if (template_text.Substring(0, "config_overclocker_hooks".Length) == "config_overclocker_hooks")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_overclocker_hooks = parameter.ToLower();
+                                    template_text = template_text.Remove(0, equalIndex + 1);
+                                    foundConfig = true;
+                                }
+                            }
+
+                            // config_winactive_hooks
+                            if (template_text.Length > "config_winactive_hooks".Length)
+                            {
+                                if (template_text.Substring(0, "config_winactive_hooks".Length) == "config_winactive_hooks")
+                                {
+                                    int equalIndex = template_text.IndexOf("=");
+                                    string parameter = "";
+                                    bool parameterStart = false;
+                                    while (template_text[equalIndex] != ';')
+                                    {
+                                        if (!parameterStart)
+                                        {
+                                            if (template_text[equalIndex] != '=' && template_text[equalIndex] != ' ')
+                                            {
+                                                parameter = parameter + template_text[equalIndex];
+                                                parameterStart = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parameter = parameter + template_text[equalIndex];
+                                        }
+                                        equalIndex++;
+                                    }
+                                    module.config_winactive_hooks = parameter.ToLower();
                                     template_text = template_text.Remove(0, equalIndex + 1);
                                     foundConfig = true;
                                 }

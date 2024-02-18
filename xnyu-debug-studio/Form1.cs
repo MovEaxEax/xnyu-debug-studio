@@ -48,7 +48,7 @@ namespace xnyu_debug_studio
         public static string xnyu_window_long_name = "xNyu TAS Studio v" + applicationVersion;
 
         // Copies files etc, when opened in visual studio
-        public static bool visualStudioMode = false;
+        public static bool visualStudioMode = true;
 
         // Template
         public static Template CurrentTemplate = null;
@@ -271,6 +271,17 @@ namespace xnyu_debug_studio
             // Create folder of TAS Studio structure
             CreateFolderStructure();
 
+            /*
+            foreach (ProcessModule pm in Process.GetProcessesByName("TheMessenger")[0].Modules)
+            {
+                if (pm.ModuleName.Contains("TheMessenger"))
+                {
+                    MessageBox.Show(pm.ModuleName);
+                    MessageBox.Show(pm.ModuleMemorySize.ToString());
+                }
+            }
+            */
+
             if (visualStudioMode)
             {
                 string cD = Directory.GetCurrentDirectory();
@@ -287,8 +298,8 @@ namespace xnyu_debug_studio
                 string dstMM = cD + @"\xnyu-mod-manager.exe";
                 if (File.Exists(src64)) File.Copy(srcMM, dstMM, true);
 
-                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\Touhou New World\x64\Debug\new-world-mod.dll";
-                string dstMod = cD + @"\mods\TouhouNewWorld\mod\new-world-mod.dll";
+                string srcMod = cD.Substring(0, cD.IndexOf('x')) + @"xnyu-game-mods\The Messenger\x64\Debug\the-messenger-mod.dll";
+                string dstMod = cD + @"\mods\TheMessenger\mod\the-messenger-mod.dll";
                 if (File.Exists(srcMod)) File.Copy(srcMod, dstMod, true);
             }
             else
@@ -913,6 +924,8 @@ namespace xnyu_debug_studio
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_joystickdriver_get + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_graphicdriver + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_d3d9_hook + ";";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_overclocker_hooks + ";";
+                                        initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_winactive_hooks + ";";
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_rawinput_demand + ";";
 
                                         initDebuggerParameter = initDebuggerParameter + CurrentTemplate.target_module.config_modname + ";";

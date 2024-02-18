@@ -1,3 +1,12 @@
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\CustomCursor.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\DebugFunctions.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\DebugValues.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\EditorMode.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\InvisibleCursor.cur
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\Overview.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\SavefileEditor.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\SavefileEditorSelect.raw
+D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\Supervision.raw
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio.exe.config
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio.exe
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\xnyu-debug-studio.pdb
@@ -8,12 +17,3 @@ D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.csproj.CoreCompileInputs.cache
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.exe
 D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\obj\x64\Debug\xnyu-debug-studio.pdb
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\CustomCursor.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\DebugFunctions.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\DebugValues.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\EditorMode.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\InvisibleCursor.cur
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\Overview.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\SavefileEditor.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\SavefileEditorSelect.raw
-D:\GIT\repos\xnyu-debug-studio\xnyu-debug-studio\bin\x64\Debug\config\imgs\Supervision.raw
